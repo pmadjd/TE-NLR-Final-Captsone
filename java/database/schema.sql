@@ -28,7 +28,7 @@ CREATE TABLE pets (
         pet_breed varchar(24),
         pet_birthdate DATE,
         pet_description varchar(300),
-        pet_photo nvarchar(max),
+        pet_photo varchar,
         
         CONSTRAINT PK_pet_id PRIMARY KEY (pet_id)
         
