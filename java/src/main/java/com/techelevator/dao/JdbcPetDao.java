@@ -21,7 +21,7 @@ public class JdbcPetDao implements PetDao {
     @Override
     public List<Pet> getDogs() {
         List<Pet> pets = new ArrayList<>();
-        String sql = "SELECT * FROM pets WHERE pet_type = Dog";
+        String sql = "SELECT * FROM pets WHERE pet_type = 'Dog'";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             Pet pet = mapRowToPet(results);
@@ -33,7 +33,7 @@ public class JdbcPetDao implements PetDao {
     @Override
     public List<Pet> getCats() {
         List<Pet> pets = new ArrayList<>();
-        String sql = "SELECT * FROM pets WHERE pet_type = Cat";
+        String sql = "SELECT * FROM pets WHERE pet_type = 'Cat'";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             Pet pet = mapRowToPet(results);
@@ -45,7 +45,7 @@ public class JdbcPetDao implements PetDao {
     @Override
     public List<Pet> getOthers() {
         List<Pet> pets = new ArrayList<>();
-        String sql = "SELECT * FROM pets WHERE pet_type = Other";
+        String sql = "SELECT * FROM pets WHERE pet_type = 'Other'";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             Pet pet = mapRowToPet(results);
