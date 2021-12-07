@@ -81,7 +81,8 @@ export default {
   padding: 20px 20px;
   margin: 0 auto;
   max-width: 60vw;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family:Asap;
+  /* font-family: 'Nunito Sans', sans-serif; */
   box-sizing: border-box;
   width: auto;
   position: relative;

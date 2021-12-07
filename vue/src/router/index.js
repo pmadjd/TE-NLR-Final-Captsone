@@ -5,6 +5,14 @@ import Login from '../views/LoginView.vue'
 import Logout from '../views/LogoutView.vue'
 import Register from '../views/RegisterView.vue'
 import store from '../store/index'
+import Cats from '../views/AllCatsView.vue'
+import Dogs from '../views/AllDogsView.vue'
+import Others from '../views/AllOthersView.vue'
+import Celebrations from '../views/CelebrationsView.vue'
+import EditListing from '../views/EditPetListingView.vue'
+import NotFound from '../views/NotFoundView.vue'
+import PendingVols from '../views/PendingVolsView.vue'
+import Directory from '../views/VolDirectoryView.vue'
 
 Vue.use(Router)
 
@@ -25,9 +33,9 @@ const router = new Router({
       path: '/',
       name: 'home',
       component: Home,
-      meta: {
-        requiresAuth: true
-      }
+      // meta: {
+      //   requiresAuth: true
+      // }
     },
     {
       path: "/login",
@@ -51,6 +59,67 @@ const router = new Router({
       component: Register,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: "/cats",
+      name: "cats",
+      component: Cats,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/dogs",
+      name: "dogs",
+      component: Dogs,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/others",
+      name: "others",
+      component: Others,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/celebrations",
+      name: "celebrations",
+      component: Celebrations,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/edit-listing",
+      name: "editListing",
+      component: EditListing,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/not-found",
+      name: "notFound",
+      component: NotFound
+    },
+    {
+      path: "/pending-vols",
+      name: "pendingVols",
+      component: PendingVols,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/directory",
+      name: "directory",
+      component: Directory,
+      meta: {
+        requiresAuth: true
       }
     },
   ]
