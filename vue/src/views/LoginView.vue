@@ -80,7 +80,7 @@ export default {
 .text-center {
   padding: 20px 20px;
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 60vw;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   box-sizing: border-box;
   width: auto;
@@ -94,7 +94,8 @@ export default {
   background-image: -o-linear-gradient(bottom, #BEE2FF 15%, #95C2FD 100%);
   background-image: linear-gradient(to top, #BEE2FF 15%, #95C2FD 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#95C2FD', endColorstr='#BEE2FF');
-  border: solid 1px rgba(0,0,0,0.5);
+  /* border: solid 1px rgba(0,0,0,0.5); */
+  border: white;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
