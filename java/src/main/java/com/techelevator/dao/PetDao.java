@@ -6,5 +6,8 @@ import java.util.List;
 
 public interface PetDao {
 
-    List<Pet> getPets(String petType);
+    List<Pet> getDogs();
+    List<Pet> getCats();
+    List<Pet> getOthers();
+//    List<Pet> getPets(String petType);
 }

@@ -19,24 +19,40 @@ public class JdbcPetDao implements PetDao {
     }
 
     @Override
-    public List<Pet> getPets(String petType) {
+    public List<Pet> getDogs() {
         List<Pet> pets = new ArrayList<>();
-        String sql = "SELECT * FROM pets";
-                if (petType != null && !petType.isEmpty()) {
-                    sql += "WHERE "+ petType +" = ?";
-                }
+        String sql = "SELECT * FROM pets WHERE pet_type = Dog";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
-                while(results.next()) {
-                    Pet pet = mapRowToPet(results);
-                    pets.add(pet);
-                }
+        while(results.next()) {
+            Pet pet = mapRowToPet(results);
+            pets.add(pet);
+        }
         return pets;
     }
 
-    //jdbctemplate
-    //write the sql get allpets
-    //add boolean to database for pets (adopted not adopted)
+    @Override
+    public List<Pet> getCats() {
+        List<Pet> pets = new ArrayList<>();
+        String sql = "SELECT * FROM pets WHERE pet_type = Cat";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()) {
+            Pet pet = mapRowToPet(results);
+            pets.add(pet);
+        }
+        return pets;
+    }
 
+    @Override
+    public List<Pet> getOthers() {
+        List<Pet> pets = new ArrayList<>();
+        String sql = "SELECT * FROM pets WHERE pet_type = Other";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()) {
+            Pet pet = mapRowToPet(results);
+            pets.add(pet);
+        }
+        return pets;
+    }
 
     private Pet mapRowToPet(SqlRowSet rs) {
         Pet pet = new Pet();
@@ -52,3 +68,21 @@ public class JdbcPetDao implements PetDao {
 
     }
 }
+//    @Override
+//    public List<Pet> getPets(String petType) {
+//        List<Pet> pets = new ArrayList<>();
+//        String sql = "SELECT * FROM pets";
+//                if (petType != null && !petType.isEmpty()) {
+//                    sql += "WHERE "+ petType +" = ?";
+//                }
+//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, petType);
+//                while(results.next()) {
+//                    Pet pet = mapRowToPet(results);
+//                    pets.add(pet);
+//                }
+//        return pets;
+//    }
+// jdbctemplate
+// write the sql get allpets
+// add boolean to database for pets (adopted not adopted)
+
