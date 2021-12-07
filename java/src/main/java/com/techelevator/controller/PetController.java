@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import com.techelevator.dao.PetDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.security.jwt.TokenProvider;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -12,14 +13,16 @@ import java.security.Principal;
 @RestController
 public class PetController {
     private UserDao userDao;
+    private PetDao petDao;
 
-    public PetController(UserDao userdao) {
-        this.userDao = userdao;
+    public PetController(UserDao userDao, PetDao petDao) {
+        this.userDao = userDao;
+        this.petDao = petDao;
     }
 
-//    @RequestMapping(path = "/pets", method = RequestMethod.GET)
-//    public String getPets(Principal principal) {
-//
-//    }
+    @RequestMapping(path = "/pets", method = RequestMethod.GET)
+    public String getPets(Principal principal) {
+
+    }
 
 }
