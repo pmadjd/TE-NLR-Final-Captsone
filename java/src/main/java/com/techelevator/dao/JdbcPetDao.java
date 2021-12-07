@@ -45,7 +45,7 @@ public class JdbcPetDao implements PetDao {
     @Override
     public List<Pet> getOthers() {
         List<Pet> pets = new ArrayList<>();
-        String sql = "SELECT * FROM pets WHERE pet_type = 'Other'";
+        String sql = "SELECT * FROM pets WHERE pet_type != 'Dog' AND pet_type != 'Cat'";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             Pet pet = mapRowToPet(results);
