@@ -12,6 +12,6 @@
 <style>
 #app{
 font-family: Asap;
-background-color: cornflowerblue;
+background-color: lightblue;
 }
 </style>

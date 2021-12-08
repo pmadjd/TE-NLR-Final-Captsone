@@ -4,7 +4,7 @@
     <!--home is a placeholder for logo-->
     <img
       id="banner"
-      src="https://animalhaven.org/wp-content/uploads/2015/12/dog-and-cat-banner-2.png"
+      src = "https://animalhaven.org/wp-content/uploads/2015/12/dog-and-cat-banner-2.png"
       alt="cat dog banner"
     />
 
@@ -14,21 +14,27 @@
           src="https://www.montgomerycountymd.gov/animalservices/Resources/Images/dogicon.png"
           alt="dog icon"
         />
+        <router-link v-bind:to="{name: 'dogs'}">
         <div class="well-text">VIEW DOGS</div>
+        </router-link>
       </div>
       <div class="well">
         <img
           src="https://www.montgomerycountymd.gov/animalservices/Resources/Images/caticon.png"
           alt="cat icon"
         />
+         <router-link v-bind:to="{name: 'cats'}">
         <div class="well-text">VIEW CATS</div>
+         </router-link>
       </div>
       <div class="well">
         <img
           src="https://www.montgomerycountymd.gov/animalservices/Resources/Images/othericon.png"
           alt="other pets icon"
         />
+        <router-link v-bind:to="{name: 'others'}">
         <div class="well-text">VIEW OTHERS</div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -56,6 +62,9 @@ div.well-display {
 div.well{
   margin: 20px;
   margin-top: 2px;
+}
+.well-text{
+  text-decoration: none;
 }
 #banner {
   width: 100%;

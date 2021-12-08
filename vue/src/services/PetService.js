@@ -4,14 +4,17 @@ const http =axios.create({
     baseURL: "http://localhost:8080"
 });
 
-export default{
-    getDogList{
+export default {
+
+    getDogList() {
         return http.get('/dogs');
-    }
-    getCatList{
+    },
+
+    getCatList() {
         return http.get('/cats');
-    }
-    getOthersList{
+    },
+
+    getOthersList() {
         return http.get('/others');
     }
 }
