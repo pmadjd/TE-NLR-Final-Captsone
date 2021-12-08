@@ -54,6 +54,28 @@ public class JdbcPetDao implements PetDao {
         return pets;
     }
 
+    @Override
+    public Pet getPet(String petName) {
+        String sql = "SELECT * FROM pets WHERE pet_name = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, petName);
+        Pet pet = new Pet();
+        if (results.next()) {
+            pet = mapRowToPet(results);
+        }
+        return pet;
+    }
+
+    @Override
+    public Pet createPet(Pet pet) {
+        //pass in pet itself instead of individual field
+        //run through jdbctemplate.Update
+        //
+        Pet petAdded = createPet(pet.getPetName());
+        return petAdded(getPet);
+    }
+    //have sql like line 59, have an insert into, then column names petbreed petname, etc, space then values () ? ? ? ?
+
+
     private Pet mapRowToPet(SqlRowSet rs) {
         Pet pet = new Pet();
         pet.setPetId(rs.getLong("pet_id"));
@@ -65,7 +87,6 @@ public class JdbcPetDao implements PetDao {
         pet.setPetDescription(rs.getString("pet_description"));
         pet.setPetPhoto(rs.getString("pet_photo"));
         return pet;
-
     }
 }
 //    @Override
