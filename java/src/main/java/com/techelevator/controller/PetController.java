@@ -5,10 +5,7 @@ import com.techelevator.dao.UserDao;
 import com.techelevator.model.Pet;
 import com.techelevator.security.jwt.TokenProvider;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.List;
@@ -37,6 +34,11 @@ public class PetController {
     public List<Pet> getOthers() {
         return petDao.getOthers();
     }
+//    @PreAuthorize("hasRole('ROLE_ADMIN')")
+//    @RequestMapping(path = "/addpet", method = RequestMethod.POST)
+//    public Pet createPet(@RequestBody Pet pet) {
+//        return petDao.createPet(pet);
+//    }
 
 //    @RequestMapping(path = "/addpet", method = RequestMethod.POST)
 //

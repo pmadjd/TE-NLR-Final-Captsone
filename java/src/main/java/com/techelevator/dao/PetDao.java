@@ -9,6 +9,8 @@ public interface PetDao {
     List<Pet> getDogs();
     List<Pet> getCats();
     List<Pet> getOthers();
-    Pet getPet(String petName);
+    Pet getPet(Long petId);
+    Pet createPet(Pet pet);
+    Pet updatePet(Pet pet);
 //    List<Pet> getPets(String petType);
 }

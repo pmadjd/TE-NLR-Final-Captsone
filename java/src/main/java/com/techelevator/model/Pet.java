@@ -1,7 +1,6 @@
 package com.techelevator.model;
 
 public class Pet {
-//camelCase
     private Long petId;
     private String petName;
     private String petType;
@@ -14,15 +13,15 @@ public class Pet {
     public Pet() {
     }
 
-    public Pet(Long pet_id, String pet_name, String pet_type, String pet_gender, String pet_breed, String pet_birthdate, String pet_description, String pet_photo) {
-        this.petId = pet_id;
-        this.petName = pet_name;
-        this.petType = pet_type;
-        this.petGender = pet_gender;
-        this.petBreed = pet_breed;
-        this.petBirthdate = pet_birthdate;
-        this.petDescription = pet_description;
-        this.petPhoto = pet_photo;
+    public Pet(Long petId, String petName, String petType, String petGender, String petBreed, String petBirthdate, String petDescription, String petPhoto) {
+        this.petId = petId;
+        this.petName = petName;
+        this.petType = petType;
+        this.petGender = petGender;
+        this.petBreed = petBreed;
+        this.petBirthdate = petBirthdate;
+        this.petDescription = petDescription;
+        this.petPhoto = petPhoto;
     }
 
     public Long getPetId() {
@@ -89,4 +88,3 @@ public class Pet {
         this.petPhoto = petPhoto;
     }
 }
-

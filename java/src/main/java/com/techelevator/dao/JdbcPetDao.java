@@ -55,10 +55,10 @@ public class JdbcPetDao implements PetDao {
     }
 
     @Override
-    public Pet getPet(String petName) {
-        String sql = "SELECT * FROM pets WHERE pet_name = ?;";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, petName);
-        Pet pet = new Pet();
+    public Pet getPet(Long petId) {
+        Pet pet = null;
+        String sql = "SELECT * FROM pets WHERE pet_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, petId);
         if (results.next()) {
             pet = mapRowToPet(results);
         }
@@ -67,14 +67,23 @@ public class JdbcPetDao implements PetDao {
 
     @Override
     public Pet createPet(Pet pet) {
-        //pass in pet itself instead of individual field
-        //run through jdbctemplate.Update
-        //
-        Pet petAdded = createPet(pet.getPetName());
-        return petAdded(getPet);
+        String sql = "INSERT INTO pets (pet_name, pet_type, pet_gender, pet_breed, pet_birthdate, pet_description, pet_photo) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING pet_name";
+        Long newPet = jdbcTemplate.queryForObject(sql, Long.class, pet.getPetName(), pet.getPetType(), pet.getPetGender(),
+                pet.getPetBreed(), pet.getPetBirthdate(), pet.getPetDescription(), pet.getPetPhoto());
+        return getPet(newPet);
     }
-    //have sql like line 59, have an insert into, then column names petbreed petname, etc, space then values () ? ? ? ?
 
+    @Override
+    public Pet updatePet(Pet pet) {
+        Pet result = pet;
+        String sql = "UPDATE pet SET pet_name = ?, pet_type = ?, pet_gender = ?, pet_breed = ?, pet_birthdate = ?, pet_description = ?, pet_photo = ?";
+        jdbcTemplate.update(sql, Long.class, pet.getPetName(), pet.getPetType(), pet.getPetGender(),
+                pet.getPetBreed(), pet.getPetBirthdate(), pet.getPetDescription(), pet.getPetPhoto());
+        return result;
+    }
+    //pass in pet itself instead of individual field
+    //run through jdbctemplate.Update
 
     private Pet mapRowToPet(SqlRowSet rs) {
         Pet pet = new Pet();
@@ -86,6 +95,7 @@ public class JdbcPetDao implements PetDao {
         pet.setPetBirthdate(rs.getString("pet_birthdate"));
         pet.setPetDescription(rs.getString("pet_description"));
         pet.setPetPhoto(rs.getString("pet_photo"));
+        //we might add is adopted
         return pet;
     }
 }
