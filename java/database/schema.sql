@@ -15,6 +15,10 @@ CREATE TABLE users (
 	username varchar(50) NOT NULL,
 	password_hash varchar(200) NOT NULL,
 	role varchar(50) NOT NULL,
+	first_name varchar,
+	last_name varchar,
+	email varchar,
+	phone text,
 	new_user boolean DEFAULT true,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
@@ -29,6 +33,7 @@ CREATE TABLE pets (
         pet_birthdate DATE,
         pet_description varchar(300),
         pet_photo varchar,
+        is_adopted boolean DEFAULT FALSE,
         
         CONSTRAINT PK_pet_id PRIMARY KEY (pet_id)
         
@@ -36,6 +41,7 @@ CREATE TABLE pets (
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (username,password_hash,role, first_name, last_name, email, phone) VALUES ('Bob','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'Bob', 'Jones', 'bob@bob.com', '1234567890');
 
 INSERT INTO pets (pet_id, pet_name, pet_type, pet_gender, pet_breed, pet_birthdate, pet_description, pet_photo)
 VALUES 
@@ -61,7 +67,5 @@ VALUES
 (DEFAULT, 'London', 'Dog', 'F', 'Mixed Breed', '2015-05-28', 'London came to us severely malnourished with a litter of puppies. Her puppies are grown and adopted, and now London is healthy and ready for her own forever home. She is incredibly sweet and loves people of all ages, including kids!', 'https://lh3.googleusercontent.com/pw/AM-JKLWuh20xlZFv97PueJvbzxfWsYebXI-jLrMwyFt9aJGFsP2PBwc0NVwjNCvby7ww1UpR6nD92t2UB0XghrZv4ZN4svoQ1NRjYD7hsRER3qztQFRAh8Eozbzh6vHZRXNmILKxAeY2C_cZP78JE7MEsA8=s919-no?authuser=0'),
 (DEFAULT, 'Bugs', 'Bunny', 'M', 'American Chinchilla', '2018-02-19', 'Bugs was rescued from a farm. He''s a chubby little guy who loves to cuddle!', 'https://lh3.googleusercontent.com/pw/AM-JKLWeFYpPVm6tA12aAyUIWnSJTbziR5qWbxOP1xicQecWsfxxTXTofkhrz-tm8ZnQ5hE7LMzakQfbwQDzOV3D4BiRhBvJvk0BIEKaRZHjeX43L7KVdDB_0SOjtp01_46qjS9J_5g5ws1ROgiELZQ-5G8=w1383-h919-no?authuser=0'),
 (DEFAULT, 'Chuck', 'Guinea Pig', 'M', 'American Guinea Pig', '2021-05-27', 'Chuck was found in an abandoned home and brought to us by a concerned animal lover. He loves to eat!','https://lh3.googleusercontent.com/pw/AM-JKLUPei25XfoNEKJ57Mj5vpSq9T6RqRfbJwcmPKvma3ZGvn__CYJ88Ktqyx8-Ic5oOTFi9H5wOf7gvNu5B3VRPtV6fpldcCJ7th-M1p-DGlclStp6CzSaQD0azdCBCfwgALIf_q86D46QD_yZXcEA_-Q=w444-h600-no?authuser=0');
-
-
 
 COMMIT TRANSACTION;
