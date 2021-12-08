@@ -31,7 +31,7 @@ CREATE TABLE pets (
         pet_gender varchar(1) NOT NULL,
         pet_breed varchar(24),
         pet_birthdate DATE,
-        arrival_date DATE,
+        arrival_date DATE DEFAULT CURRENT_DATE,
         pet_description varchar(300),
         pet_photo varchar,
         is_adopted boolean DEFAULT FALSE,
