@@ -5,11 +5,11 @@
 </template>
 
 <script>
-// import AllDogsList from '@/components/AllDogsList.vue'
+import AllDogsList from '@/components/AllDogsList.vue'
 export default {
     name: 'dogs-list-page',
     components: {
-        // AllDogsList
+        AllDogsList
     }
 
 }
