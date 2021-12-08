@@ -1,19 +1,24 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.Date;
+
 public class Pet {
     private Long petId;
+    @JsonProperty("pet_name")
     private String petName;
     private String petType;
     private String petGender;
     private String petBreed;
-    private String petBirthdate;
+    private Date petBirthdate;
     private String petDescription;
     private String petPhoto;
 
     public Pet() {
     }
 
-    public Pet(Long petId, String petName, String petType, String petGender, String petBreed, String petBirthdate, String petDescription, String petPhoto) {
+    public Pet(Long petId, String petName, String petType, String petGender, String petBreed, Date petBirthdate, String petDescription, String petPhoto) {
         this.petId = petId;
         this.petName = petName;
         this.petType = petType;
@@ -44,7 +49,7 @@ public class Pet {
         return petBreed;
     }
 
-    public String getPetBirthdate() {
+    public Date getPetBirthdate() {
         return petBirthdate;
     }
 
@@ -76,7 +81,7 @@ public class Pet {
         this.petBreed = petBreed;
     }
 
-    public void setPetBirthdate(String petBirthdate) {
+    public void setPetBirthdate(Date petBirthdate) {
         this.petBirthdate = petBirthdate;
     }
 

@@ -34,11 +34,11 @@ public class PetController {
     public List<Pet> getOthers() {
         return petDao.getOthers();
     }
-//    @PreAuthorize("hasRole('ROLE_ADMIN')")
-//    @RequestMapping(path = "/addpet", method = RequestMethod.POST)
-//    public Pet createPet(@RequestBody Pet pet) {
-//        return petDao.createPet(pet);
-//    }
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @RequestMapping(path = "/addpet", method = RequestMethod.POST)
+    public Pet createPet(@RequestBody Pet pet) {
+        return petDao.createPet(pet);
+    }
 
 //    @RequestMapping(path = "/addpet", method = RequestMethod.POST)
 //
