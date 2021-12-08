@@ -1,9 +1,9 @@
 <template>
   <div class="dog-card">
-    <div class="dog" v-for="dog in dogs" v-bind:key="dog.pet-id">
+    <div class="dog" v-for="dog in dogs" v-bind:key="dog.petId">
     <h2 class="pet-name">{{ dog.petName }}</h2>
     <h3 class="pet-id">{{ dog.petId }}</h3>
-    {{ dog.pet-photo }}
+    <img src="{{ dog.petPhoto }}" alt="dog photo">
     <!-- ??????? -->
     <h3 class="pet-gender">{{ dog.petGender }}</h3>
     <h3 class="pet-breed">{{ dog.petBreed }}</h3>

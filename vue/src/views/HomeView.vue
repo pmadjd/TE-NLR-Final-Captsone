@@ -17,29 +17,29 @@
 
     <div class="well-display">
       <div class="well">
-        <img
-          src="https://www.montgomerycountymd.gov/animalservices/Resources/Images/dogicon.png"
-          alt="dog icon"
-        />
         <router-link v-bind:to="{ name: 'dogs' }">
+          <img
+            src="https://www.montgomerycountymd.gov/animalservices/Resources/Images/dogicon.png"
+            alt="dog icon"
+          />
           <div class="well-text">VIEW DOGS</div>
         </router-link>
       </div>
       <div class="well">
-        <img
-          src="https://www.montgomerycountymd.gov/animalservices/Resources/Images/caticon.png"
-          alt="cat icon"
-        />
         <router-link v-bind:to="{ name: 'cats' }">
+          <img
+            src="https://www.montgomerycountymd.gov/animalservices/Resources/Images/caticon.png"
+            alt="cat icon"
+          />
           <div class="well-text">VIEW CATS</div>
         </router-link>
       </div>
       <div class="well">
-        <img
-          src="https://www.montgomerycountymd.gov/animalservices/Resources/Images/othericon.png"
-          alt="other pets icon"
-        />
         <router-link v-bind:to="{ name: 'others' }">
+          <img
+            src="https://www.montgomerycountymd.gov/animalservices/Resources/Images/othericon.png"
+            alt="other pets icon"
+          />
           <div class="well-text">VIEW OTHERS</div>
         </router-link>
       </div>
@@ -56,6 +56,8 @@ export default {
 <style>
 h1 {
   text-align: center;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 #logo {
   width: 12%;
@@ -76,6 +78,7 @@ div.well {
 }
 .well-text {
   text-decoration: none;
+  color: #795621;
 }
 #banner {
   width: 100%;
