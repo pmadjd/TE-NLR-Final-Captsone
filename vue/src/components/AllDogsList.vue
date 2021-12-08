@@ -1,14 +1,14 @@
 <template>
   <div class="dog-card">
     <div class="dog" v-for="dog in dogs" v-bind:key="dog.pet-id">
-    <h2 class="pet-name">{{ dog.pet-name }}</h2>
-    <h3 class="pet-id">{{ dog.pet-id }}</h3>
+    <h2 class="pet-name">{{ dog.petName }}</h2>
+    <h3 class="pet-id">{{ dog.petId }}</h3>
     {{ dog.pet-photo }}
     <!-- ??????? -->
-    <h3 class="pet-gender">{{ dog.pet-gender }}</h3>
-    <h3 class="pet-breed">{{ dog.pet-breed }}</h3>
-    <h3 class="pet-birthdate">{{ dog.pet-birthdate }}</h3>
-    <h4 class="pet-description">{{ dog.pet-description }}</h4>
+    <h3 class="pet-gender">{{ dog.petGender }}</h3>
+    <h3 class="pet-breed">{{ dog.petBreed }}</h3>
+    <h3 class="pet-birthdate">{{ dog.petBirthdate }}</h3>
+    <h4 class="pet-description">{{ dog.petDescription }}</h4>
   </div>
   </div>
 </template>
