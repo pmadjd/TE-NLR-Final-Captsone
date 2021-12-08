@@ -1,17 +1,24 @@
 <template>
   <div id="login" class="text-center">
+    <h1>
+      <img
+        src="https://i.ibb.co/rbyMTpM/Image-from-i-OS-8.png"
+        alt="shelter logo"
+        id="logo"
+      />
+    </h1>
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
-      <div
-        class="alert alert-danger"
-        role="alert"
-        v-if="invalidCredentials"
-      >Invalid username and password!</div>
+      <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
+        Invalid username and password!
+      </div>
       <div
         class="alert alert-success"
         role="alert"
         v-if="this.$route.query.registration"
-      >Thank you for registering, please sign in.</div>
+      >
+        Thank you for registering, please sign in.
+      </div>
       <label for="username" class="sr-only">Username: </label>
       <input
         type="text"
@@ -23,19 +30,19 @@
         autofocus
       />
       <div>
-      <label for="password" class="sr-only">Password: </label>
-      <input
-        type="password"
-        id="password"
-        class="form-control"
-        placeholder="Password"
-        v-model="user.password"
-        required
-      />
+        <label for="password" class="sr-only">Password: </label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          placeholder="Password"
+          v-model="user.password"
+          required
+        />
       </div>
       <button type="submit">Sign in</button>
       <div>
-      <router-link :to="{ name: 'register' }">Need an account? </router-link>
+        <router-link :to="{ name: 'register' }">Need an account? </router-link>
       </div>
     </form>
   </div>
@@ -51,31 +58,31 @@ export default {
     return {
       user: {
         username: "",
-        password: ""
+        password: "",
       },
-      invalidCredentials: false
+      invalidCredentials: false,
     };
   },
   methods: {
     login() {
       authService
         .login(this.user)
-        .then(response => {
+        .then((response) => {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
             this.$router.push("/");
           }
         })
-        .catch(error => {
+        .catch((error) => {
           const response = error.response;
 
           if (response.status === 401) {
             this.invalidCredentials = true;
           }
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -85,8 +92,8 @@ export default {
   margin: 0 auto;
   max-width: 60vw;
   text-align: center;
-  font-size:120%;
-  font-family:Asap;
+  font-size: 120%;
+  font-family: Asap;
   /* font-family: 'Nunito Sans', sans-serif; */
   box-sizing: border-box;
   width: auto;
@@ -100,25 +107,34 @@ export default {
   background-image: -o-linear-gradient(bottom, #BEE2FF 15%, #95C2FD 100%);
   background-image: linear-gradient(to top, #BEE2FF 15%, #95C2FD 100%); */
   background: white;
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.15, white), color-stop(1, #95C2FD));
-  background-image: -webkit-linear-gradient(bottom, #BEE2FF 15%, white 100%);
-  background-image: -moz-linear-gradient(bottom, #BEE2FF 15%, white 100%);
-  background-image: -ms-linear-gradient(bottom, #BEE2FF 15%, white 100%);
-  background-image: -o-linear-gradient(bottom, #BEE2FF 15%, white 100%);
-  background-image: linear-gradient(to top, #BEE2FF 15%, white 100%);
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.15, white),
+    color-stop(1, #95c2fd)
+  );
+  background-image: -webkit-linear-gradient(bottom, #bee2ff 15%, white 100%);
+  background-image: -moz-linear-gradient(bottom, #bee2ff 15%, white 100%);
+  background-image: -ms-linear-gradient(bottom, #bee2ff 15%, white 100%);
+  background-image: -o-linear-gradient(bottom, #bee2ff 15%, white 100%);
+  background-image: linear-gradient(to top, #bee2ff 15%, white 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#95C2FD', endColorstr='#BEE2FF');
   /* border: solid 1px rgba(0,0,0,0.5); */
   border: white;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
-  -webkit-box-shadow: inset 0 8px 5px rgba(255,255,255,0.65), 0 1px 2px rgba(0,0,0,0.2);
-  -moz-box-shadow: inset 0 8px 5px rgba(255,255,255,0.65), 0 1px 2px rgba(0,0,0,0.2);
-  box-shadow: inset 0 8px 5px rgba(255,255,255,0.65), 0 1px 2px rgba(0,0,0,0.2);
+  -webkit-box-shadow: inset 0 8px 5px rgba(255, 255, 255, 0.65),
+    0 1px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 8px 5px rgba(255, 255, 255, 0.65),
+    0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 8px 5px rgba(255, 255, 255, 0.65),
+    0 1px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
   padding: 6px 20px;
   color: #000;
-  text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
   word-wrap: break-word;
 }
 </style>

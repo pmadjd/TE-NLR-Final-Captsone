@@ -1,15 +1,22 @@
 <template>
   <div class="dog-card">
+    <h1>
+      <img
+        src="https://i.ibb.co/rbyMTpM/Image-from-i-OS-8.png"
+        alt="shelter logo"
+        id="logo"
+      />
+    </h1>
     <div class="dog" v-for="dog in dogs" v-bind:key="dog.petId">
-    <h2 class="pet-name">{{ dog.petName }}</h2>
-    <h3 class="pet-id">{{ dog.petId }}</h3>
-    <img src="{{ dog.petPhoto }}" alt="dog photo">
-    <!-- ??????? -->
-    <h3 class="pet-gender">{{ dog.petGender }}</h3>
-    <h3 class="pet-breed">{{ dog.petBreed }}</h3>
-    <h3 class="pet-birthdate">{{ dog.petBirthdate }}</h3>
-    <h4 class="pet-description">{{ dog.petDescription }}</h4>
-  </div>
+      <h2 class="pet-name">{{ dog.petName }}</h2>
+      <h3 class="pet-id">Pet ID: {{ dog.petId }}</h3>
+      <img src="{dog.petPhoto}" alt="dog photo" />
+      <!-- ??????? -->
+      <h3 class="pet-gender">Gender: {{ dog.petGender }}</h3>
+      <h3 class="pet-breed">Breed: {{ dog.petBreed }}</h3>
+      <h3 class="pet-birthdate">Birthdate: {{ dog.petBirthdate }}</h3>
+      <h4 class="pet-description">{{ dog.petDescription }}</h4>
+    </div>
   </div>
 </template>
 
@@ -33,12 +40,19 @@ export default {
 </script>
 
 <style>
-.dog-card {
+.dog {
   border: 2px solid black;
   border-radius: 10px;
   width: 250px;
   height: 550px;
   margin: 20px;
+  text-align: center;
+}
+
+.dog-card {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .dog-card .pet-name {
