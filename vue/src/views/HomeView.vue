@@ -1,39 +1,46 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
+    <h1>
+      <img
+        src="https://i.ibb.co/rbyMTpM/Image-from-i-OS-8.png"
+        alt="shelter logo"
+        id="logo"
+      />
+    </h1>
     <!--home is a placeholder for logo-->
     <img
+      src="https://i.ibb.co/PGMJcjz/dog-and-cat-banner-23.png"
+      alt="shelter banner"
+      border="0"
       id="banner"
-      src = "https://animalhaven.org/wp-content/uploads/2015/12/dog-and-cat-banner-2.png"
-      alt="cat dog banner"
     />
 
     <div class="well-display">
       <div class="well">
-        <img
-          src="https://www.montgomerycountymd.gov/animalservices/Resources/Images/dogicon.png"
-          alt="dog icon"
-        />
-        <router-link v-bind:to="{name: 'dogs'}">
-        <div class="well-text">VIEW DOGS</div>
+        <router-link v-bind:to="{ name: 'dogs' }">
+          <img
+            src="https://www.montgomerycountymd.gov/animalservices/Resources/Images/dogicon.png"
+            alt="dog icon"
+          />
+          <div class="well-text">VIEW DOGS</div>
         </router-link>
       </div>
       <div class="well">
-        <img
-          src="https://www.montgomerycountymd.gov/animalservices/Resources/Images/caticon.png"
-          alt="cat icon"
-        />
-         <router-link v-bind:to="{name: 'cats'}">
-        <div class="well-text">VIEW CATS</div>
-         </router-link>
+        <router-link v-bind:to="{ name: 'cats' }">
+          <img
+            src="https://www.montgomerycountymd.gov/animalservices/Resources/Images/caticon.png"
+            alt="cat icon"
+          />
+          <div class="well-text">VIEW CATS</div>
+        </router-link>
       </div>
       <div class="well">
-        <img
-          src="https://www.montgomerycountymd.gov/animalservices/Resources/Images/othericon.png"
-          alt="other pets icon"
-        />
-        <router-link v-bind:to="{name: 'others'}">
-        <div class="well-text">VIEW OTHERS</div>
+        <router-link v-bind:to="{ name: 'others' }">
+          <img
+            src="https://www.montgomerycountymd.gov/animalservices/Resources/Images/othericon.png"
+            alt="other pets icon"
+          />
+          <div class="well-text">VIEW OTHERS</div>
         </router-link>
       </div>
     </div>
@@ -49,6 +56,12 @@ export default {
 <style>
 h1 {
   text-align: center;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+#logo {
+  width: 12%;
+  height: auto;
 }
 div.well-display {
   display: flex;
@@ -59,15 +72,18 @@ div.well-display {
   font-weight: bold;
   font-family: "Nunito Sans", sans-serif;
 }
-div.well{
+div.well {
   margin: 20px;
   margin-top: 2px;
 }
-.well-text{
+.well-text {
   text-decoration: none;
+  color: #795621;
 }
 #banner {
   width: 100%;
   height: auto;
+  display: flex;
+  justify-content: center;
 }
 </style>
