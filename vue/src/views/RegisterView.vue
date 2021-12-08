@@ -1,11 +1,11 @@
 <template>
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+      <h1 class="h3 mb-3 font-weight-normal">Apply/Register</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
-      <label for="username" class="sr-only">Username</label>
+      <label for="username" class="sr-only">Username: </label>
       <input
         type="text"
         id="username"
@@ -15,7 +15,7 @@
         required
         autofocus
       />
-      <label for="password" class="sr-only">Password</label>
+      <label for="password" class="sr-only">Password: </label>
       <input
         type="password"
         id="password"
@@ -32,10 +32,54 @@
         v-model="user.confirmPassword"
         required
       />
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
+      <br>
+      <label for="firstName" class="sr-only">First Name: </label>
+      <input
+        type="text"
+        id="firstName"
+        class="form-control"
+        placeholder="First Name"
+        v-model="user.firstName"
+        required
+        autofocus
+      />
+      <label for="lastName" class="sr-only">Last Name: </label>
+      <input
+        type="text"
+        id="lastName"
+        class="form-control"
+        placeholder="Last Name"
+        v-model="user.lastName"
+        required
+        autofocus
+      />
+      <br>
+      <label for="email" class="sr-only">Email: </label>
+      <input
+        type="text"
+        id="email"
+        class="form-control"
+        placeholder="Email"
+        v-model="user.email"
+        required
+        autofocus
+      />
+      <label for="phoneNumber" class="sr-only">Phone Number: </label>
+      <input
+        type="text"
+        id="phoneNumber"
+        class="form-control"
+        placeholder="Phone Number"
+        v-model="user.phoneNumber"
+        required
+        autofocus
+      />
+      <br>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
-        Create Account
+        Apply/Register
       </button>
+      <br>
+      <router-link :to="{ name: 'login' }">Have an account?</router-link>
     </form>
   </div>
 </template>
@@ -52,6 +96,10 @@ export default {
         password: '',
         confirmPassword: '',
         role: 'user',
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: ""
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',

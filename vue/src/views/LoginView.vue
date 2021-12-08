@@ -12,7 +12,7 @@
         role="alert"
         v-if="this.$route.query.registration"
       >Thank you for registering, please sign in.</div>
-      <label for="username" class="sr-only">Username</label>
+      <label for="username" class="sr-only">Username: </label>
       <input
         type="text"
         id="username"
@@ -22,7 +22,8 @@
         required
         autofocus
       />
-      <label for="password" class="sr-only">Password</label>
+      <div>
+      <label for="password" class="sr-only">Password: </label>
       <input
         type="password"
         id="password"
@@ -31,8 +32,11 @@
         v-model="user.password"
         required
       />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
+      </div>
       <button type="submit">Sign in</button>
+      <div>
+      <router-link :to="{ name: 'register' }">Need an account? </router-link>
+      </div>
     </form>
   </div>
 </template>
@@ -75,25 +79,33 @@ export default {
 };
 </script>
 
-<!--can we put this script here? or does it need to go in a componenet?-->
 <style>
 .text-center {
   padding: 20px 20px;
   margin: 0 auto;
   max-width: 60vw;
+  text-align: center;
+  font-size:120%;
   font-family:Asap;
   /* font-family: 'Nunito Sans', sans-serif; */
   box-sizing: border-box;
   width: auto;
   position: relative;
   clear: both;
-  background: #95C2FD;
+  /* background: #accdf8;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.15, #BEE2FF), color-stop(1, #95C2FD));
   background-image: -webkit-linear-gradient(bottom, #BEE2FF 15%, #95C2FD 100%);
   background-image: -moz-linear-gradient(bottom, #BEE2FF 15%, #95C2FD 100%);
   background-image: -ms-linear-gradient(bottom, #BEE2FF 15%, #95C2FD 100%);
   background-image: -o-linear-gradient(bottom, #BEE2FF 15%, #95C2FD 100%);
-  background-image: linear-gradient(to top, #BEE2FF 15%, #95C2FD 100%);
+  background-image: linear-gradient(to top, #BEE2FF 15%, #95C2FD 100%); */
+  background: white;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.15, white), color-stop(1, #95C2FD));
+  background-image: -webkit-linear-gradient(bottom, #BEE2FF 15%, white 100%);
+  background-image: -moz-linear-gradient(bottom, #BEE2FF 15%, white 100%);
+  background-image: -ms-linear-gradient(bottom, #BEE2FF 15%, white 100%);
+  background-image: -o-linear-gradient(bottom, #BEE2FF 15%, white 100%);
+  background-image: linear-gradient(to top, #BEE2FF 15%, white 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#95C2FD', endColorstr='#BEE2FF');
   /* border: solid 1px rgba(0,0,0,0.5); */
   border: white;

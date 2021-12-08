@@ -1,92 +1,92 @@
 package com.techelevator.model;
 
 public class Pet {
-
-    private Long pet_id;
-    private String pet_name;
-    private String pet_type;
-    private String pet_gender;
-    private String pet_breed;
-    private String pet_birthdate;
-    private String pet_description;
-    private String pet_photo;
+//camelCase
+    private Long petId;
+    private String petName;
+    private String petType;
+    private String petGender;
+    private String petBreed;
+    private String petBirthdate;
+    private String petDescription;
+    private String petPhoto;
 
     public Pet() {
     }
 
     public Pet(Long pet_id, String pet_name, String pet_type, String pet_gender, String pet_breed, String pet_birthdate, String pet_description, String pet_photo) {
-        this.pet_id = pet_id;
-        this.pet_name = pet_name;
-        this.pet_type = pet_type;
-        this.pet_gender = pet_gender;
-        this.pet_breed = pet_breed;
-        this.pet_birthdate = pet_birthdate;
-        this.pet_description = pet_description;
-        this.pet_photo = pet_photo;
+        this.petId = pet_id;
+        this.petName = pet_name;
+        this.petType = pet_type;
+        this.petGender = pet_gender;
+        this.petBreed = pet_breed;
+        this.petBirthdate = pet_birthdate;
+        this.petDescription = pet_description;
+        this.petPhoto = pet_photo;
     }
 
-    public Long getPet_id() {
-        return pet_id;
+    public Long getPetId() {
+        return petId;
     }
 
-    public String getPet_name() {
-        return pet_name;
+    public String getPetName() {
+        return petName;
     }
 
-    public String getPet_type() {
-        return pet_type;
+    public String getPetType() {
+        return petType;
     }
 
-    public String getPet_gender() {
-        return pet_gender;
+    public String getPetGender() {
+        return petGender;
     }
 
-    public String getPet_breed() {
-        return pet_breed;
+    public String getPetBreed() {
+        return petBreed;
     }
 
-    public String getPet_birthdate() {
-        return pet_birthdate;
+    public String getPetBirthdate() {
+        return petBirthdate;
     }
 
-    public String getPet_description() {
-        return pet_description;
+    public String getPetDescription() {
+        return petDescription;
     }
 
-    public String getPet_photo() {
-        return pet_photo;
+    public String getPetPhoto() {
+        return petPhoto;
     }
 
-    public void setPet_id(Long pet_id) {
-        this.pet_id = pet_id;
+    public void setPetId(Long petId) {
+        this.petId = petId;
     }
 
-    public void setPet_name(String pet_name) {
-        this.pet_name = pet_name;
+    public void setPetName(String petName) {
+        this.petName = petName;
     }
 
-    public void setPet_type(String pet_type) {
-        this.pet_type = pet_type;
+    public void setPetType(String petType) {
+        this.petType = petType;
     }
 
-    public void setPet_gender(String pet_gender) {
-        this.pet_gender = pet_gender;
+    public void setPetGender(String petGender) {
+        this.petGender = petGender;
     }
 
-    public void setPet_breed(String pet_breed) {
-        this.pet_breed = pet_breed;
+    public void setPetBreed(String petBreed) {
+        this.petBreed = petBreed;
     }
 
-    public void setPet_birthdate(String pet_birthdate) {
-        this.pet_birthdate = pet_birthdate;
+    public void setPetBirthdate(String petBirthdate) {
+        this.petBirthdate = petBirthdate;
     }
 
-    public void setPet_description(String pet_description) {
-        this.pet_description = pet_description;
+    public void setPetDescription(String petDescription) {
+        this.petDescription = petDescription;
     }
 
-    public void setPet_photo(String pet_photo) {
-        this.pet_photo = pet_photo;
+    public void setPetPhoto(String petPhoto) {
+        this.petPhoto = petPhoto;
     }
 }
 
