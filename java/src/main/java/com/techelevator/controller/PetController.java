@@ -25,7 +25,7 @@ public class PetController {
     }
 
     @RequestMapping(path = "/dogs", method = RequestMethod.GET)
-    public List<Pet> getDogs(Principal principal, Pet pet) {
+    public List<Pet> getDogs() {
         return petDao.getDogs();
     }
 
@@ -37,6 +37,10 @@ public class PetController {
     public List<Pet> getOthers() {
         return petDao.getOthers();
     }
+
+//    @RequestMapping(path = "/addpet", method = RequestMethod.POST)
+//
+
 //    @RequestMapping(path = "/pets", method = RequestMethod.GET)
 //    public String getPets(Principal principal) {
 //
