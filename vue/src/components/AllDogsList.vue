@@ -15,7 +15,7 @@
       <h3 class="pet-breed">Breed: {{ dog.petBreed }}</h3>
       <h3 class="pet-birthdate">Birthdate: {{ dog.petBirthdate }}</h3>
       <h3 class="arrival-date">Arrival Date: {{ dog.petArrivalDate }}</h3>
-      <h3 class="length-of-stay">Length of Stay: </h3>
+      <!-- <h3 class="length-of-stay">Length of Stay: moment({{dog.petArrivalDate}}, "YYYYMMDD").fromNow(); </h3> -->
       <h4 class="pet-description">{{ dog.petDescription }}</h4>
       <button v-if="$store.state.user.authorities">Update</button>
     </div>
