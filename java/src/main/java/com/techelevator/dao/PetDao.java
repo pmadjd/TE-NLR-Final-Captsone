@@ -11,6 +11,6 @@ public interface PetDao {
     List<Pet> getOthers();
     Pet getPet(Long petId);
     Pet createPet(Pet pet);
-    Pet updatePet(Pet pet);
+    Pet updatePet(Pet pet, Long petId);
 //    List<Pet> getPets(String petType);
 }
