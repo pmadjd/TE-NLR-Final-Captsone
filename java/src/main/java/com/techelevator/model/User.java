@@ -19,15 +19,19 @@ public class User {
    private String lastname;
    private String email;
    private String phonenum;
+   private boolean isapproved;
+   private boolean isrejected;
 
 
    public User() { }
 
-   public User(Long id, String username, String password, String authorities) {
+   public User(Long id, String username, String password, String authorities, boolean isApproved, boolean isRejected) {
       this.id = id;
       this.username = username;
       this.password = password;
       this.activated = true;
+      this.isapproved = false;
+      this.isrejected = false;
    }
 
    public Long getId() {
@@ -100,6 +104,22 @@ public class User {
 
    public void setPhonenum(String phonenum) {
       this.phonenum = phonenum;
+   }
+
+   public boolean isIsapproved() {
+      return isapproved;
+   }
+
+   public void setIsapproved(boolean isapproved) {
+      this.isapproved = isapproved;
+   }
+
+   public boolean isIsrejected() {
+      return isrejected;
+   }
+
+   public void setIsrejected(boolean isrejected) {
+      this.isrejected = isrejected;
    }
 
    public void setAuthorities(String authorities) {

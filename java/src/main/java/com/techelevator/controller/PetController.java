@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import com.techelevator.dao.PetDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Pet;
+import com.techelevator.model.User;
 import com.techelevator.security.jwt.TokenProvider;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -44,6 +45,12 @@ public class PetController {
     @RequestMapping(path = "/updatepet", method = RequestMethod.PUT)
     public Pet updatePet(@RequestBody Pet pet, Long petId) {
         return petDao.updatePet(pet, petId);
+    }
+
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @RequestMapping(path = "/approveuser", method = RequestMethod.PUT)
+    public User updateIsApproved(@RequestBody User user, Long id) {
+        return userDao.updateIsApproved(user, id);
     }
 
 //    @RequestMapping(path = "/addpet", method = RequestMethod.POST)

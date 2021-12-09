@@ -63,11 +63,12 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public boolean create(String username, String password, String role) {
+    public boolean create(String username, String password, String role, String firstname, String lastname,
+                          String email, String phonenum) {
         boolean userCreated = false;
 
         // create user
-        String insertUser = "insert into users (username,password_hash,role,first_name,last_name,email,phone) values(?,?,?,?,?,?)";
+        String insertUser = "insert into users (username,password_hash,role, first_name, last_name, email, phone) values(?,?,?,?,?,?,?)";
         String password_hash = new BCryptPasswordEncoder().encode(password);
         String ssRole = "ROLE_" + role.toUpperCase();
 
@@ -78,6 +79,10 @@ public class JdbcUserDao implements UserDao {
                     ps.setString(1, username);
                     ps.setString(2, password_hash);
                     ps.setString(3, ssRole);
+                    ps.setString(4, firstname);
+                    ps.setString(5, lastname);
+                    ps.setString(6, email);
+                    ps.setString(7, phonenum);
                     return ps;
                 }
                 , keyHolder) == 1;
@@ -85,6 +90,24 @@ public class JdbcUserDao implements UserDao {
 
         return userCreated;
     }
+
+    @Override
+    public User updateIsApproved(User user, Long id) {
+        User results = user;
+        String sql = "UPDATE users SET is_approved = true WHERE user_id = ?";
+        int newId = jdbcTemplate.update(sql, user.getId());
+        return getUserById((long) newId);
+    }
+
+    @Override
+    public User updateIsRejected(User user, Long id) {
+        User results = user;
+        String sql = "UPDATE users SET is_rejected = true WHERE user_id = ?";
+        int newId = jdbcTemplate.update(sql, user.getId());
+        return getUserById((long) newId);
+    }
+
+
 
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
@@ -97,6 +120,8 @@ public class JdbcUserDao implements UserDao {
         user.setLastname("last_name");
         user.setEmail("email");
         user.setPhonenum("phone");
+        user.setIsapproved(false);
+        user.setIsrejected(false);
         return user;
     }
 }
