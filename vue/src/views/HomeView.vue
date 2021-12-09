@@ -56,8 +56,10 @@ export default {
 <style>
 h1 {
   text-align: center;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: center;
 }
 #logo {
   width: 12%;
@@ -78,7 +80,7 @@ div.well {
 }
 .well-text {
   text-decoration: none;
-  color: #795621;
+  color: #7e6037;
 }
 #banner {
   width: 100%;

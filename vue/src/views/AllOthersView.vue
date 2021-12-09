@@ -5,11 +5,11 @@
 </template>
 
 <script>
-// import AllOthersList from '@/components/AllOthersList.vue'
+import AllOthersList from '@/components/AllOthersList.vue'
 export default {
     name: 'others-list-page',
     components: {
-        // AllOthersList
+        AllOthersList
     }
 
 }

@@ -68,7 +68,7 @@ public class JdbcPetDao implements PetDao {
     @Override
     public Pet createPet(Pet pet) {
         String sql = "INSERT INTO pets (pet_name, pet_type, pet_gender, pet_breed, pet_birthdate, pet_description, pet_photo) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING pet_name";
+                "VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING pet_id";
         Long newPet = jdbcTemplate.queryForObject(sql, Long.class, pet.getPetName(), pet.getPetType(), pet.getPetGender(),
                 pet.getPetBreed(), pet.getPetBirthdate(), pet.getPetDescription(), pet.getPetPhoto());
         return getPet(newPet);
@@ -82,6 +82,7 @@ public class JdbcPetDao implements PetDao {
                 pet.getPetBreed(), pet.getPetBirthdate(), pet.getPetDescription(), pet.getPetPhoto());
         return result;
     }
+    //Margaret's notes:
     //pass in pet itself instead of individual field
     //run through jdbctemplate.Update
 
@@ -92,7 +93,7 @@ public class JdbcPetDao implements PetDao {
         pet.setPetType(rs.getString("pet_type"));
         pet.setPetGender(rs.getString("pet_gender"));
         pet.setPetBreed(rs.getString("pet_breed"));
-        pet.setPetBirthdate(rs.getString("pet_birthdate"));
+        pet.setPetBirthdate(rs.getDate("pet_birthdate"));
         pet.setPetDescription(rs.getString("pet_description"));
         pet.setPetPhoto(rs.getString("pet_photo"));
         //we might add is adopted
@@ -100,12 +101,16 @@ public class JdbcPetDao implements PetDao {
     }
 }
 //    @Override
-//    public List<Pet> getPets(String petType) {
+//    public List<Pet> getPets(String petType, String petBreed, ) {
 //        List<Pet> pets = new ArrayList<>();
-//        String sql = "SELECT * FROM pets";
+//        String sql = "SELECT * FROM pets WHERE adopted_is false";
 //                if (petType != null && !petType.isEmpty()) {
-//                    sql += "WHERE "+ petType +" = ?";
+//                    sql += "AND "+ petType +" = ?";
 //                }
+//                  if (petBreed != null && !petBreed.isEmpty()) {
+//                      sql += "AND "+ petBreed +" = ?";
+//                   if (pet
+//
 //        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, petType);
 //                while(results.next()) {
 //                    Pet pet = mapRowToPet(results);

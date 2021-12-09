@@ -20,8 +20,9 @@
   font-family: Asap;
   background-color: lightblue;
 }
-#nav {
+a {
   text-decoration: none;
-  color: #795621;
+  color: #7e6037;
+  font-size: 20px;
 }
 </style>
