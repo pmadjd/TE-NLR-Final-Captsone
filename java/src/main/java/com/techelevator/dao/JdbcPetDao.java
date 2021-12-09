@@ -68,9 +68,9 @@ public class JdbcPetDao implements PetDao {
     @Override
     public Pet createPet(Pet pet) {
         String sql = "INSERT INTO pets (pet_name, pet_type, pet_gender, pet_breed, pet_birthdate, pet_description, pet_photo)" +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING pet_id";
+                "VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING pet_id";
         Long newPet = jdbcTemplate.queryForObject(sql, Long.class, pet.getPetName(), pet.getPetType(), pet.getPetGender(),
-                pet.getPetBreed(), pet.getPetBirthdate(), pet.getPetDescription(), pet.getPetPhoto(), pet.getPetArrivalDate());
+                pet.getPetBreed(), pet.getPetBirthdate(), pet.getPetDescription(), pet.getPetPhoto());
         return getPet(newPet);
     }
 
@@ -79,7 +79,7 @@ public class JdbcPetDao implements PetDao {
         Pet result = pet;
         String sql = "UPDATE pet SET pet_name = ?, pet_type = ?, pet_gender = ?, pet_breed = ?, pet_birthdate = ?, pet_description = ?, pet_photo = ?";
         jdbcTemplate.update(sql, Long.class, pet.getPetName(), pet.getPetType(), pet.getPetGender(),
-                pet.getPetBreed(), pet.getPetBirthdate(), pet.getPetDescription(), pet.getPetPhoto(), pet.getPetArrivalDate());
+                pet.getPetBreed(), pet.getPetBirthdate(), pet.getPetDescription(), pet.getPetPhoto());
         return result;
     }
     //Margaret's notes:
