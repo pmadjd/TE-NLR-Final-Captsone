@@ -8,7 +8,6 @@ import store from '../store/index'
 import Cats from '../views/AllCatsView.vue'
 import Dogs from '../views/AllDogsView.vue'
 import Others from '../views/AllOthersView.vue'
-import Celebrations from '../views/CelebrationsView.vue'
 import EditListing from '../views/EditPetListingView.vue'
 import NotFound from '../views/NotFoundView.vue'
 import PendingVols from '../views/PendingVolsView.vue'
@@ -81,14 +80,6 @@ const router = new Router({
       path: "/others",
       name: "others",
       component: Others,
-      meta: {
-        requiresAuth: false
-      }
-    },
-    {
-      path: "/celebrations",
-      name: "celebrations",
-      component: Celebrations,
       meta: {
         requiresAuth: false
       }

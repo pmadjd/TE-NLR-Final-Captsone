@@ -5,11 +5,11 @@
 </template>
 
 <script>
-// import AllCatsList from '@/components/AllCatsList.vue'
+import AllCatsList from '@/components/AllCatsList.vue'
 export default {
     name: 'cats-list-page',
     components: {
-        // AllCatsList
+        AllCatsList
     }
 
 }
