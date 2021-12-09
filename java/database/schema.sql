@@ -20,7 +20,7 @@ CREATE TABLE users (
 	email varchar,
 	phone text,
 	new_user boolean DEFAULT true,
-	pending boolean DEFAULT false,
+	is_approved boolean DEFAULT false,
 	is_rejected boolean DEFAULT false,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
