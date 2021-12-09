@@ -21,7 +21,7 @@ public class JdbcPetDao implements PetDao {
     @Override
     public List<Pet> getDogs() {
         List<Pet> pets = new ArrayList<>();
-        String sql = "SELECT * FROM pets WHERE pet_type = 'Dog'";
+        String sql = "SELECT * FROM pets WHERE pet_type ILIKE('Dog')";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             Pet pet = mapRowToPet(results);
@@ -33,7 +33,7 @@ public class JdbcPetDao implements PetDao {
     @Override
     public List<Pet> getCats() {
         List<Pet> pets = new ArrayList<>();
-        String sql = "SELECT * FROM pets WHERE pet_type = 'Cat'";
+        String sql = "SELECT * FROM pets WHERE pet_type ILIKE('Cat')";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             Pet pet = mapRowToPet(results);
@@ -75,11 +75,12 @@ public class JdbcPetDao implements PetDao {
     }
 
     @Override
-    public Pet updatePet(Pet pet) {
+    public Pet updatePet(Pet pet, Long petId) {
         Pet result = pet;
-        String sql = "UPDATE pet SET pet_name = ?, pet_type = ?, pet_gender = ?, pet_breed = ?, pet_birthdate = ?, pet_description = ?, pet_photo = ?";
-        jdbcTemplate.update(sql, Long.class, pet.getPetName(), pet.getPetType(), pet.getPetGender(),
-                pet.getPetBreed(), pet.getPetBirthdate(), pet.getPetDescription(), pet.getPetPhoto());
+        String sql = "UPDATE pets SET pet_name = ?, pet_type = ?, pet_gender = ?, pet_breed = ?, pet_birthdate = ?, pet_description = ?, pet_photo = ? "+
+                     "WHERE pet_id = ?";
+        jdbcTemplate.update(sql, pet.getPetName(), pet.getPetType(), pet.getPetGender(),
+                pet.getPetBreed(), pet.getPetBirthdate(), pet.getPetDescription(), pet.getPetPhoto(), pet.getPetId());
         return result;
     }
     //Margaret's notes:

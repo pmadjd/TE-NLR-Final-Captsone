@@ -72,3 +72,4 @@ VALUES
 (DEFAULT, 'Chuck', 'Guinea Pig', 'M', 'American Guinea Pig', '2021-05-27', '2021-06-27', 'Chuck was found in an abandoned home and brought to us by a concerned animal lover. He loves to eat!','https://lh3.googleusercontent.com/pw/AM-JKLUPei25XfoNEKJ57Mj5vpSq9T6RqRfbJwcmPKvma3ZGvn__CYJ88Ktqyx8-Ic5oOTFi9H5wOf7gvNu5B3VRPtV6fpldcCJ7th-M1p-DGlclStp6CzSaQD0azdCBCfwgALIf_q86D46QD_yZXcEA_-Q=w444-h600-no?authuser=0');
 
 COMMIT TRANSACTION;
+
