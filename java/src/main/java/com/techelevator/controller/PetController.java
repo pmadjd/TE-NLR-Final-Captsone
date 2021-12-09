@@ -40,6 +40,12 @@ public class PetController {
         return petDao.createPet(pet);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @RequestMapping(path = "/updatepet", method = RequestMethod.PUT)
+    public Pet updatePet(@RequestBody Pet pet) {
+        return petDao.updatePet(pet);
+    }
+
 //    @RequestMapping(path = "/addpet", method = RequestMethod.POST)
 //
 

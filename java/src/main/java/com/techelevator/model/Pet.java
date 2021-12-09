@@ -1,12 +1,9 @@
 package com.techelevator.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.Date;
 
 public class Pet {
     private Long petId;
-    @JsonProperty("pet_name")
     private String petName;
     private String petType;
     private String petGender;
@@ -97,9 +94,5 @@ public class Pet {
 
     public void setPetPhoto(String petPhoto) {
         this.petPhoto = petPhoto;
-    }
-
-    public void setPetArrivalDate(Date petArrivalDate) {
-        this.petArrivalDate = petArrivalDate;
     }
 }
