@@ -2,7 +2,7 @@
   <div id="register" class="text-center">
     <h1>
       <img
-        src="https://i.ibb.co/rbyMTpM/Image-from-i-OS-8.png"
+        src="https://i.ibb.co/LP8ZpR2/Image-from-i-OS-10.png"
         alt="shelter logo"
         id="logo"
       />

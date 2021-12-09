@@ -2,7 +2,7 @@
   <div class="other-card">
     <h1>
       <img
-        src="https://i.ibb.co/rbyMTpM/Image-from-i-OS-8.png"
+        src="https://i.ibb.co/LP8ZpR2/Image-from-i-OS-10.png"
         alt="shelter logo"
         id="logo"
       />
@@ -50,11 +50,11 @@ export default {
   border-radius: 15px;
   border-width: 2px;
   width: 250px;
-  height: 700px;
+  height: 800px;
   margin: 20px;
   text-align: center;
   background-color: rgb(221, 240, 247);
-  color: rgb(38, 47, 121);
+  color: rgb(49, 63, 165);
 }
 
 .pet-description {

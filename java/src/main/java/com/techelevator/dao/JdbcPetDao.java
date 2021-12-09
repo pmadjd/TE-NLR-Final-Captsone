@@ -96,6 +96,7 @@ public class JdbcPetDao implements PetDao {
         pet.setPetBirthdate(rs.getDate("pet_birthdate"));
         pet.setPetDescription(rs.getString("pet_description"));
         pet.setPetPhoto(rs.getString("pet_photo"));
+        pet.setPetArrivalDate(rs.getDate("arrival_date"));
         return pet;
     }
 }

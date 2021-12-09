@@ -2,7 +2,7 @@
   <div class="dog-card">
     <h1>
       <img
-        src="https://i.ibb.co/rbyMTpM/Image-from-i-OS-8.png"
+        src="https://i.ibb.co/LP8ZpR2/Image-from-i-OS-10.png"
         alt="shelter logo"
         id="logo"
       />
@@ -14,8 +14,10 @@
       <h3 class="pet-gender">Gender: {{ dog.petGender }}</h3>
       <h3 class="pet-breed">Breed: {{ dog.petBreed }}</h3>
       <h3 class="pet-birthdate">Birthdate: {{ dog.petBirthdate }}</h3>
-      <h3 class="arrival-date">Arrival Date: {{dog.arrivalDate}}</h3>
+      <h3 class="arrival-date">Arrival Date: {{ dog.petArrivalDate }}</h3>
+      <h3 class="length-of-stay">Length of Stay: </h3>
       <h4 class="pet-description">{{ dog.petDescription }}</h4>
+      <button v-if="$store.state.user.authorities">Update</button>
     </div>
   </div>
 </template>
@@ -50,11 +52,11 @@ export default {
   border-radius: 15px;
   border-width: 2px;
   width: 250px;
-  height: 700px;
+  height: 800px;
   margin: 20px;
   text-align: center;
   background-color: rgb(221, 240, 247);
-  color: rgb(38, 47, 121);
+  color: rgb(49, 63, 165);
 }
 
 .pet-description {

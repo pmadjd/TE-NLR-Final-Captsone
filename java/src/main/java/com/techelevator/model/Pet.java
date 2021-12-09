@@ -95,4 +95,7 @@ public class Pet {
     public void setPetPhoto(String petPhoto) {
         this.petPhoto = petPhoto;
     }
+    public void setPetArrivalDate(Date petArrivalDate){
+        this.petArrivalDate = petArrivalDate;
+    }
 }
