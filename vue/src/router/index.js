@@ -12,6 +12,7 @@ import EditListing from '../views/EditPetListingView.vue'
 import NotFound from '../views/NotFoundView.vue'
 import PendingVols from '../views/PendingVolsView.vue'
 import Directory from '../views/VolDirectoryView.vue'
+import AddPet from '../views/AddPetListingView.vue'
 
 Vue.use(Router)
 
@@ -61,7 +62,7 @@ const router = new Router({
       }
     },
     {
-      path: "/cats",
+      path: "/cat",
       name: "cats",
       component: Cats,
       meta: {
@@ -69,7 +70,7 @@ const router = new Router({
       }
     },
     {
-      path: "/dogs",
+      path: "/dog",
       name: "dogs",
       component: Dogs,
       meta: {
@@ -77,7 +78,7 @@ const router = new Router({
       }
     },
     {
-      path: "/others",
+      path: "/other",
       name: "others",
       component: Others,
       meta: {
@@ -113,6 +114,14 @@ const router = new Router({
         requiresAuth: true
       }
     },
+    {
+      path: "/add-pet",
+      name: "addPet",
+      component: AddPet,
+      meta: {
+        requiresAuth: true
+      }
+    }
   ]
 })
 

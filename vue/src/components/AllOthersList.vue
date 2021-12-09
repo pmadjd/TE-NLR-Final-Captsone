@@ -14,8 +14,9 @@
       <h3 class="pet-gender">Gender: {{ other.petGender }}</h3>
       <h3 class="pet-breed">Breed: {{ other.petBreed }}</h3>
       <h3 class="pet-birthdate">Birthdate: {{ other.petBirthdate }}</h3>
-      <h3 class="arrival-date">Arrival Date: {{other.arrivalDate}}</h3>
+      <h3 class="arrival-date">Arrival Date: {{other.petArrivalDate}}</h3>
       <h4 class="pet-description">{{ other.petDescription }}</h4>
+      <button v-if="$store.state.user.authorities">Update</button>
     </div>
   </div>
 </template>
