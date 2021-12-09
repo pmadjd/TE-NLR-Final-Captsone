@@ -101,12 +101,16 @@ public class JdbcPetDao implements PetDao {
     }
 }
 //    @Override
-//    public List<Pet> getPets(String petType) {
+//    public List<Pet> getPets(String petType, String petBreed, ) {
 //        List<Pet> pets = new ArrayList<>();
-//        String sql = "SELECT * FROM pets";
+//        String sql = "SELECT * FROM pets WHERE adopted_is false";
 //                if (petType != null && !petType.isEmpty()) {
-//                    sql += "WHERE "+ petType +" = ?";
+//                    sql += "AND "+ petType +" = ?";
 //                }
+//                  if (petBreed != null && !petBreed.isEmpty()) {
+//                      sql += "AND "+ petBreed +" = ?";
+//                   if (pet
+//
 //        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, petType);
 //                while(results.next()) {
 //                    Pet pet = mapRowToPet(results);
