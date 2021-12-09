@@ -41,8 +41,8 @@ CREATE TABLE pets (
         
         );
 
-INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (username,password_hash,role, is_approved) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', TRUE);
+INSERT INTO users (username,password_hash,role, is_approved) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN', TRUE);
 INSERT INTO users (username,password_hash,role, first_name, last_name, email, phone) VALUES ('Bob','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'Bob', 'Jones', 'bob@bob.com', '1234567890');
 
 INSERT INTO pets (pet_id, pet_name, pet_type, pet_gender, pet_breed, pet_birthdate, arrival_date, pet_description, pet_photo)
