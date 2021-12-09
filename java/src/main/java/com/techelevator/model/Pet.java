@@ -14,11 +14,12 @@ public class Pet {
     private Date petBirthdate;
     private String petDescription;
     private String petPhoto;
+    private Date petArrivalDate;
 
     public Pet() {
     }
 
-    public Pet(Long petId, String petName, String petType, String petGender, String petBreed, Date petBirthdate, String petDescription, String petPhoto) {
+    public Pet(Long petId, String petName, String petType, String petGender, String petBreed, Date petBirthdate, String petDescription, String petPhoto, Date petArrivalDate) {
         this.petId = petId;
         this.petName = petName;
         this.petType = petType;
@@ -27,6 +28,7 @@ public class Pet {
         this.petBirthdate = petBirthdate;
         this.petDescription = petDescription;
         this.petPhoto = petPhoto;
+        this.petArrivalDate = petArrivalDate;
     }
 
     public Long getPetId() {
@@ -61,6 +63,10 @@ public class Pet {
         return petPhoto;
     }
 
+    public Date getPetArrivalDate() {
+        return petArrivalDate;
+    }
+
     public void setPetId(Long petId) {
         this.petId = petId;
     }
@@ -91,5 +97,9 @@ public class Pet {
 
     public void setPetPhoto(String petPhoto) {
         this.petPhoto = petPhoto;
+    }
+
+    public void setPetArrivalDate(Date petArrivalDate) {
+        this.petArrivalDate = petArrivalDate;
     }
 }
