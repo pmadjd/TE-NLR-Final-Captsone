@@ -52,7 +52,7 @@
       <label for="photo">Photo URL: </label>
       <input type="text" name="petPhoto" v-model="pet.petPhoto" />
     </div>
-    <button type="submit">Add Pet</button>
+    <button v-on:click="addNewPet" type="submit">Add Pet</button>
   </form>
 </template>
 

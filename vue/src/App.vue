@@ -10,6 +10,9 @@
         v-if="$store.state.token != ''"
         >Logout</router-link
       >
+      <router-link v-bind:to="{ name: 'addPet' }" v-if="$store.state.token !=''"> | Add Pet</router-link>
+      <router-link v-bind:to="{ name: 'directory' }" v-if="$store.state.token !=''"> | Directory</router-link>
+      <!-- <router-link v-bind:to="{ name: 'pendingVols' }" v-if="$store.state.user.authorities[0].name==='ROLE_ADMIN'"> | View Applications</router-link> -->
     </div>
     <router-view />
   </div>
