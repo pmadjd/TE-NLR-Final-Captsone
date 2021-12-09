@@ -16,5 +16,9 @@ export default {
 
     getOthersList() {
         return http.get('/others');
+    },
+
+    addNewPet(pet){
+        return http.post('/addPet', pet);
     }
 }
