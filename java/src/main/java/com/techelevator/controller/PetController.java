@@ -53,6 +53,12 @@ public class PetController {
         return userDao.updateIsApproved(user, id);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    @RequestMapping(path = "/adduser", method = RequestMethod.POST)
+    public User create(@RequestBody User user) {
+        return userDao.create(user);
+    }
+
 //    @RequestMapping(path = "/addpet", method = RequestMethod.POST)
 //
 
