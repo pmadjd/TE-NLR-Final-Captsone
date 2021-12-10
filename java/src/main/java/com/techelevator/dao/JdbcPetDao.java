@@ -105,7 +105,6 @@ public class JdbcPetDao implements PetDao {
         pet.setPetDescription(rs.getString("pet_description"));
         pet.setPetPhoto(rs.getString("pet_photo"));
         pet.setPetAdopterInfo(rs.getString("adopter_info"));
-
         return pet;
     }
 }
