@@ -46,28 +46,6 @@ public class PetController {
     public Pet updatePet(@RequestBody Pet pet, Long petId) {
         return petDao.updatePet(pet, petId);
     }
-
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @RequestMapping(path = "/approveuser", method = RequestMethod.PUT)
-    public User updateIsApproved(@RequestBody User user, Long id) {
-        return userDao.updateIsApproved(user, id);
-    }
-
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @RequestMapping(path = "/rejectuser", method = RequestMethod.PUT)
-    public User updateIsRejected(@RequestBody User user, Long id) {
-        return userDao.updateIsRejected(user, id);
-    }
-
-
-//    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-//    @RequestMapping(path = "/adduser", method = RequestMethod.POST)
-//    public User create(@RequestBody User user) {
-//        return userDao.create(user);
-//    }
-
-//    @RequestMapping(path = "/addpet", method = RequestMethod.POST)
-//
 }
 
 

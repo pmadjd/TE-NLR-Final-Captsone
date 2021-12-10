@@ -14,8 +14,8 @@ public interface UserDao {
 
     int findIdByUsername(String username);
 
-    boolean create(String username, String password, String role, String firstname, String lastname,
-           String email, String phonenum);
+    boolean createUser(String username, String password, String role, String firstname, String lastname,
+                       String email, String phonenum);
 
     User updateIsApproved(User user, Long id);
 
