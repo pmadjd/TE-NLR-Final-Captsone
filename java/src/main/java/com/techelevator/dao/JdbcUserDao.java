@@ -62,9 +62,6 @@ public class JdbcUserDao implements UserDao {
         throw new UsernameNotFoundException("User " + username + " was not found.");
     }
 
-//    @Override
-//    public User user
-
     @Override
     public boolean create(String username, String password, String role, String firstname, String lastname,
                           String email, String phonenum) {
@@ -103,13 +100,13 @@ public class JdbcUserDao implements UserDao {
         return getUserById((long) newId);
     }
 
-//    @Override
-//    public User updateIsRejected(User user, Long id) {
-//        User results = user;
-//        String sql = "UPDATE users SET is_rejected = true WHERE user_id = ?";
-//        int newId = jdbcTemplate.update(sql, user.getId());
-//        return getUserById((long) newId);
-//    }
+    @Override
+    public User updateIsRejected(User user, Long id) {
+        User results = user;
+        String sql = "UPDATE users SET is_rejected = true WHERE user_id = ?";
+        int newId = jdbcTemplate.update(sql, user.getId());
+        return getUserById((long) newId);
+    }
 
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();

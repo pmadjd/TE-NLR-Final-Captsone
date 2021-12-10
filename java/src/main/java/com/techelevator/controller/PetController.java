@@ -53,6 +53,13 @@ public class PetController {
         return userDao.updateIsApproved(user, id);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @RequestMapping(path = "/rejectuser", method = RequestMethod.PUT)
+    public User updateIsRejected(@RequestBody User user, Long id) {
+        return userDao.updateIsRejected(user, id);
+    }
+
+
 //    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
 //    @RequestMapping(path = "/adduser", method = RequestMethod.POST)
 //    public User create(@RequestBody User user) {
@@ -61,11 +68,6 @@ public class PetController {
 
 //    @RequestMapping(path = "/addpet", method = RequestMethod.POST)
 //
-
-//    @RequestMapping(path = "/pets", method = RequestMethod.GET)
-//    public String getPets(Principal principal) {
-//
-//    }
 }
 
 
