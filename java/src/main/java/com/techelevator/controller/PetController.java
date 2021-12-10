@@ -5,7 +5,6 @@ import com.techelevator.dao.UserDao;
 import com.techelevator.model.Pet;
 import com.techelevator.model.User;
 import com.techelevator.security.jwt.TokenProvider;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,16 +36,12 @@ public class PetController {
         return petDao.getOthers();
     }
 
-<<<<<<< HEAD
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public Pet getPetById(@PathVariable long petId) {
         return petDao.getPetById(petId);
     }
 
-=======
-    @ResponseStatus(HttpStatus.CREATED)
->>>>>>> 2e964cfe9ad6076219f758b59f3a1761ac36fb58
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
     @RequestMapping(path = "/addPet", method = RequestMethod.POST)
     public Pet createPet(@RequestBody Pet pet) {
