@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import axios from 'axios'
 
 Vue.use(Vuex);
+Vue.use(require('vue-moment'));
 
 /*
  * The authorization header is set for axios when you login but what happens when you come back or

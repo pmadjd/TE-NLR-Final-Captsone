@@ -86,7 +86,7 @@ public class JdbcUserDao implements UserDao {
 
     @Override
     public User createUser(String username, String password, String role, String firstname, String lastname,
-                              String email, String phonenum) {
+                              String email, String phone) {
         boolean userCreated = false;
 
         // create user
@@ -105,7 +105,7 @@ public class JdbcUserDao implements UserDao {
                     ps.setString(4, firstname);
                     ps.setString(5, lastname);
                     ps.setString(6, email);
-                    ps.setString(7, phonenum);
+                    ps.setString(7, phone);
                     return ps;
                 }
                 , keyHolder) == 1;
@@ -141,7 +141,7 @@ public class JdbcUserDao implements UserDao {
         user.setFirstname(rs.getString("first_name"));
         user.setLastname(rs.getString("last_name"));
         user.setEmail(rs.getString("email"));
-        user.setPhonenum(rs.getString("phone"));
+        user.setPhone(rs.getString("phone"));
         user.setIsapproved(rs.getBoolean("is_approved"));
         user.setIsrejected(rs.getBoolean("is_rejected"));
         return user;

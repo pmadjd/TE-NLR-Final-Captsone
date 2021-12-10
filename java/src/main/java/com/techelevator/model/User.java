@@ -18,7 +18,7 @@ public class User {
    private String firstname;
    private String lastname;
    private String email;
-   private String phonenum;
+   private String phone;
    private boolean isapproved;
    private boolean isrejected;
 
@@ -86,8 +86,8 @@ public class User {
       return email;
    }
 
-   public String getPhonenum() {
-      return phonenum;
+   public String getPhone() {
+      return phone;
    }
 
    public void setFirstname(String firstname) {
@@ -102,8 +102,8 @@ public class User {
       this.email = email;
    }
 
-   public void setPhonenum(String phonenum) {
-      this.phonenum = phonenum;
+   public void setPhone(String phone) {
+      this.phone = phone;
    }
 
    public boolean isIsapproved() {

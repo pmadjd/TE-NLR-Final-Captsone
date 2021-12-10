@@ -66,20 +66,27 @@ public class JdbcPetDao implements PetDao {
 
     @Override
     public Pet createPet(Pet pet) {
-        String sql = "INSERT INTO pets (pet_name, pet_type, pet_gender, pet_breed, pet_birthdate, pet_description, pet_photo)" +
-                "VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING pet_id";
+        String sql = "INSERT INTO pets (pet_name, pet_type, pet_gender, pet_breed, pet_birthdate, pet_description, pet_photo, adopter_info)" +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING pet_id";
         Long newPet = jdbcTemplate.queryForObject(sql, Long.class, pet.getPetName(), pet.getPetType(), pet.getPetGender(),
-                pet.getPetBreed(), pet.getPetBirthdate(), pet.getPetDescription(), pet.getPetPhoto());
+                pet.getPetBreed(), pet.getPetBirthdate(), pet.getPetDescription(), pet.getPetPhoto(), pet.getPetAdopterInfo());
         return getPetById(newPet);
     }
 
     @Override
     public Pet updatePet(Pet pet, Long petId) {
         Pet result = pet;
-        String sql = "UPDATE pets SET pet_name = ?, pet_type = ?, pet_gender = ?, pet_breed = ?, pet_birthdate = ?, pet_description = ?, pet_photo = ? "+
+        String sql = "UPDATE pets SET pet_name = ?,"+
+                     "pet_type = ?,"+
+                     "pet_gender = ?,"+
+                     "pet_breed = ?,"+
+                     "pet_birthdate = ?,"+
+                     "pet_description = ?,"+
+                     "pet_photo = ?,"+
+                     "adopter_info = ?, "+
                      "WHERE pet_id = ?";
         jdbcTemplate.update(sql, pet.getPetName(), pet.getPetType(), pet.getPetGender(),
-                pet.getPetBreed(), pet.getPetBirthdate(), pet.getPetDescription(), pet.getPetPhoto(), pet.getPetId());
+                pet.getPetBreed(), pet.getPetBirthdate(), pet.getPetDescription(), pet.getPetPhoto(), pet.getPetAdopterInfo() ,pet.getPetId());
         return result;
     }
     //Margaret's notes:
@@ -96,6 +103,7 @@ public class JdbcPetDao implements PetDao {
         pet.setPetBirthdate(rs.getDate("pet_birthdate"));
         pet.setPetDescription(rs.getString("pet_description"));
         pet.setPetPhoto(rs.getString("pet_photo"));
+        pet.setPetAdopterInfo(rs.getString("adopter_info"));
         pet.setPetArrivalDate(rs.getDate("arrival_date"));
         return pet;
     }
