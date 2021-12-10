@@ -37,6 +37,9 @@ CREATE TABLE pets (
         pet_description varchar(300),
         pet_photo varchar,
         is_adopted boolean DEFAULT FALSE,
+        adopter_name varchar(32),
+        adopter_phone text,
+        adopter_email varchar,
         
         CONSTRAINT PK_pet_id PRIMARY KEY (pet_id)
         
