@@ -35,7 +35,7 @@ public class PetController {
     public List<Pet> getOthers() {
         return petDao.getOthers();
     }
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
     @RequestMapping(path = "/addPet", method = RequestMethod.POST)
     public Pet createPet(@RequestBody Pet pet) {
         return petDao.createPet(pet);

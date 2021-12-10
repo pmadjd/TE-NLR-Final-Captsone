@@ -12,7 +12,11 @@ public interface UserDao {
 
     User findByUsername(String username);
 
-    int findIdByUsername(String username);
+    User findIdByUsername(String username);
+
+    List<User> findAllApproved();
+
+    List<User> findAllPending();
 
     User createUser(String username, String password, String role, String firstname, String lastname,
                        String email, String phonenum);

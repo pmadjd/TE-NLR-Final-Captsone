@@ -23,8 +23,8 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public int findIdByUsername(String username) {
-        return jdbcTemplate.queryForObject("select user_id from users where username = ?", int.class, username);
+    public User findIdByUsername(String username) {
+        return jdbcTemplate.queryForObject("select user_id from users where username = ?", User.class, username);
     }
 
 	@Override
@@ -48,38 +48,32 @@ public class JdbcUserDao implements UserDao {
             User user = mapRowToUser(results);
             users.add(user);
         }
-
         return users;
     }
 
-//    @Override
-//    public List<User> findAllApproved() {
-//        List<User> users = new ArrayList<>();
-//        String sql = "select is_approved from users WHERE true";
-//
-//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
-//        while(results.next()) {
-//            User user = mapRowToUser(results);
-//            users.add(user);
-//        }
-//
-//        return users;
-//    }
+    @Override
+    public List<User> findAllApproved() {
+        List<User> users = new ArrayList<>();
+        String sql = "SELECT is_approved FROM users WHERE is_approved = true;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()) {
+            User user = mapRowToUser(results);
+            users.add(user);
+        }
+        return users;
+    }
 
-//    @Override
-//    public List<User> findAll() {
-//        List<User> users = new ArrayList<>();
-//        String sql = "select * from users";
-//
-//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
-//        while(results.next()) {
-//            User user = mapRowToUser(results);
-//            users.add(user);
-//        }
-//
-//        return users;
-//    }
-
+    @Override
+    public List<User> findAllPending() {
+        List<User> users = new ArrayList<>();
+        String sql = "SELECT username, is_approved FROM users WHERE is_approved = false;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()) {
+            User user = mapRowToUser(results);
+            users.add(user);
+        }
+        return users;
+    }
     @Override
     public User findByUsername(String username) throws UsernameNotFoundException {
         for (User user : this.findAll()) {
