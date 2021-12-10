@@ -19,12 +19,16 @@ export default {
     },
     // ?????
     addNewPet(pet){
-        return http.post('/addpet', pet);
+        return http.post('/addPet', pet);
     },
     // ?????
     updatePet(pet, petId){
-        return http.put('/updatepet', pet, petId);
-    }
+        pet.petId = petId;
+        return http.put('/updatePet', pet);
+    },
+    getPetById (id){
+        return Promise.resolve({petName:"Clifford2", petId: id});
 
+    }
 
 }

@@ -15,9 +15,9 @@
       <h3 class="pet-breed">Breed: {{ dog.petBreed }}</h3>
       <h3 class="pet-birthdate">Birthdate: {{ dog.petBirthdate }}</h3>
       <h3 class="arrival-date">Arrival Date: {{ dog.petArrivalDate }}</h3>
-      <h3 class="length-of-stay">Length of Stay: <span>{{ dog.petArrivalDate | moment("from", true) }}</span> </h3>
+      <h3 class="length-of-stay">Length of Stay: <span>{{ dog.petArrivalDate | moment("from", "now", true) }}</span> </h3>
       <h4 class="pet-description">{{ dog.petDescription }}</h4>
-      <button v-if="$store.state.user.authorities">Update</button>
+      <button v-if="$store.state.user.authorities" v-on:click= "onUpdate(dog.petId)">Update</button>
     </div>
   </div>
 </template>
@@ -39,7 +39,11 @@ export default {
     });
     //do we use moment here?
   },
-
+methods:{
+  onUpdate(petId){
+    this.$router.push({name:'editListing', params: {id: petId}})
+  }
+}
 };
 </script>
 
