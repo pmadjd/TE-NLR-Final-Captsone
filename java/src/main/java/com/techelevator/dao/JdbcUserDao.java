@@ -63,7 +63,7 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public boolean createUser(String username, String password, String role, String firstname, String lastname,
+    public User createUser(String username, String password, String role, String firstname, String lastname,
                               String email, String phonenum) {
         boolean userCreated = false;
 
@@ -87,9 +87,10 @@ public class JdbcUserDao implements UserDao {
                     return ps;
                 }
                 , keyHolder) == 1;
-        int newUserId = (int) keyHolder.getKeys().get(id_column);
+        Long newUserId = (Long) keyHolder.getKeys().get(id_column);
+        User user = new User();
 
-        return userCreated;
+        return getUserById(newUserId);
     }
 
     @Override
@@ -97,7 +98,7 @@ public class JdbcUserDao implements UserDao {
         User results = user;
         String sql = "UPDATE users SET is_approved = true WHERE user_id = ?";
         int newId = jdbcTemplate.update(sql, user.getId());
-        return getUserById((long) newId);
+        return getUserById(user.getId());
     }
 
     @Override
@@ -105,7 +106,7 @@ public class JdbcUserDao implements UserDao {
         User results = user;
         String sql = "UPDATE users SET is_rejected = true WHERE user_id = ?";
         int newId = jdbcTemplate.update(sql, user.getId());
-        return getUserById((long) newId);
+        return getUserById(user.getId());
     }
 
     private User mapRowToUser(SqlRowSet rs) {

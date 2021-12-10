@@ -28,9 +28,4 @@ public class UserController {
     public User updateIsRejected(@RequestBody User user, Long id) {
         return userDao.updateIsRejected(user, id);
     }
-//    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-//    @RequestMapping(path = "/adduser", method = RequestMethod.POST)
-//    public User create(@RequestBody User user) {
-//        return userDao.createUser();
-//    }
 }
