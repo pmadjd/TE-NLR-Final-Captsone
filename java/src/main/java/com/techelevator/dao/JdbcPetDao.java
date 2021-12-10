@@ -5,7 +5,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,7 +54,7 @@ public class JdbcPetDao implements PetDao {
     }
 
     @Override
-    public Pet getPet(Long petId) {
+    public Pet getPetById(Long petId) {
         Pet pet = null;
         String sql = "SELECT * FROM pets WHERE pet_id = ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, petId);
@@ -71,7 +70,7 @@ public class JdbcPetDao implements PetDao {
                 "VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING pet_id";
         Long newPet = jdbcTemplate.queryForObject(sql, Long.class, pet.getPetName(), pet.getPetType(), pet.getPetGender(),
                 pet.getPetBreed(), pet.getPetBirthdate(), pet.getPetDescription(), pet.getPetPhoto());
-        return getPet(newPet);
+        return getPetById(newPet);
     }
 
     @Override

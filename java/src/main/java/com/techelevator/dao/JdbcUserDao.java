@@ -23,8 +23,8 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public int findIdByUsername(String username) {
-        return jdbcTemplate.queryForObject("select user_id from users where username = ?", int.class, username);
+    public User findIdByUsername(String username) {
+        return jdbcTemplate.queryForObject("select user_id from users where username = ?", User.class, username);
     }
 
 	@Override
@@ -48,10 +48,32 @@ public class JdbcUserDao implements UserDao {
             User user = mapRowToUser(results);
             users.add(user);
         }
-
         return users;
     }
 
+    @Override
+    public List<User> findAllApproved() {
+        List<User> users = new ArrayList<>();
+        String sql = "SELECT * FROM users WHERE is_approved = true;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()) {
+            User user = mapRowToUser(results);
+            users.add(user);
+        }
+        return users;
+    }
+
+    @Override
+    public List<User> findAllPending() {
+        List<User> users = new ArrayList<>();
+        String sql = "SELECT * FROM users WHERE is_approved = false;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()) {
+            User user = mapRowToUser(results);
+            users.add(user);
+        }
+        return users;
+    }
     @Override
     public User findByUsername(String username) throws UsernameNotFoundException {
         for (User user : this.findAll()) {
@@ -116,12 +138,12 @@ public class JdbcUserDao implements UserDao {
         user.setPassword(rs.getString("password_hash"));
         user.setAuthorities(rs.getString("role"));
         user.setActivated(true);
-        user.setFirstname("first_name");
-        user.setLastname("last_name");
-        user.setEmail("email");
-        user.setPhonenum("phone");
-        user.setIsapproved(false);
-        user.setIsrejected(false);
+        user.setFirstname(rs.getString("first_name"));
+        user.setLastname(rs.getString("last_name"));
+        user.setEmail(rs.getString("email"));
+        user.setPhonenum(rs.getString("phone"));
+        user.setIsapproved(rs.getBoolean("is_approved"));
+        user.setIsrejected(rs.getBoolean("is_rejected"));
         return user;
     }
 }
