@@ -10,12 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        <!-- will need to replace filteredList when user controller is implemented -->
-        <tr
-          v-for="user in filteredList"
-          v-bind:key="user.id"
-          :class="{ disabled: user.status === 'Disabled' }"
-        >
+        <tr v-for="user in approvedUsers" v-bind:key="user.id">
           <!-- user listing goes here -->
           <td>{{ user.firstname }}</td>
           <td>{{ user.lastname }}</td>
@@ -28,7 +23,24 @@
 </template>
 
 <script>
-export default {};
+import userService from "@/services/UserService.js";
+
+export default {
+  name: "approved-users-list",
+  data() {
+    return {
+      approvedUsers: [],
+    };
+  },
+  created() {
+    userService.getApprovedUsers().then((response) => {
+      this.approvedUsers = response.data;
+    });
+  },
+  methods: {
+  
+  },
+};
 </script>
 
 <style>

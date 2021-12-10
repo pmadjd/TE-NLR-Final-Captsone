@@ -8,12 +8,17 @@ export default {
 
 //for registerview where the apply/register button adds a user to the usertable
 //WILL NEED TO CHANGE ALL PATHS HERE WHEN THE BACK END IS CREATED
-addUser(user) {
-    return http.post('/users', user);
+
+allUsers(){
+    return http.get('/listOfUsers')
 },
 
-getUsersList() {
-    return http.get('/users');
+getApprovedUsers(){
+    return http.get('/approved')
+},
+
+pendingUsers(){
+    return http.get('/pending')
 },
 
 updateApproved(user, userId){
@@ -21,7 +26,7 @@ updateApproved(user, userId){
 },
 
 rejectPending(user, userId){
-    return http.put('/rejectuser', user, userId)
+    return http.put('/rejectUser', user, userId)
 }
 
 }

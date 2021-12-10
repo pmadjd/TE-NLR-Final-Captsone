@@ -86,7 +86,7 @@ const router = new Router({
       }
     },
     {
-      path: "/edit-listing",
+      path: "/edit-listing/:id",
       name: "editListing",
       component: EditListing,
       meta: {
