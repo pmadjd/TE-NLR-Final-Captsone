@@ -103,7 +103,7 @@ const router = new Router({
       name: "pendingVols",
       component: PendingVols,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
     {
