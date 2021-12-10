@@ -11,6 +11,7 @@ public class Pet {
     private Date petBirthdate;
     private String petDescription;
     private String petPhoto;
+    private String petAdopterInfo;
     private Date petArrivalDate;
 
     public Pet() {
@@ -97,5 +98,13 @@ public class Pet {
     }
     public void setPetArrivalDate(Date petArrivalDate){
         this.petArrivalDate = petArrivalDate;
+    }
+
+    public String getPetAdopterInfo() {
+        return petAdopterInfo;
+    }
+
+    public void setPetAdopterInfo(String petAdopterInfo) {
+        this.petAdopterInfo = petAdopterInfo;
     }
 }
