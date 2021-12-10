@@ -14,8 +14,14 @@ addUser(user) {
 
 getUsersList() {
     return http.get('/users');
+},
+
+updateApproved(user, userId){
+    return http.put('/approveUser', user, userId)
+},
+
+rejectPending(user, userId){
+    return http.put('/rejectuser', user, userId)
 }
-
-
 
 }

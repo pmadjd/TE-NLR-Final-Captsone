@@ -17,8 +17,14 @@ export default {
     getOthersList() {
         return http.get('/others');
     },
-
+    // ?????
     addNewPet(pet){
-        return http.post('/addPet', pet);
+        return http.post('/addpet', pet);
+    },
+    // ?????
+    updatePet(pet, petId){
+        return http.put('/updatepet', pet, petId);
     }
+
+
 }

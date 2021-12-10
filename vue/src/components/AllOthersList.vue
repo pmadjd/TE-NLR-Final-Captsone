@@ -7,14 +7,15 @@
         id="logo"
       />
     </h1>
-    <div class="other" v-for="other in others" v-bind:key="other.petId">
-      <h2 class="pet-name">{{ other.pet_name }}</h2>
+    <div class="pet-card" v-for="other in others" v-bind:key="other.petId">
+      <h2 class="pet-name">{{ other.petName }}</h2>
       <h3 class="pet-id">Pet ID: {{ other.petId }}</h3>
       <img v-bind:src="other.petPhoto" alt="other photo" id="pet-photo" />
       <h3 class="pet-gender">Gender: {{ other.petGender }}</h3>
       <h3 class="pet-breed">Breed: {{ other.petBreed }}</h3>
       <h3 class="pet-birthdate">Birthdate: {{ other.petBirthdate }}</h3>
       <h3 class="arrival-date">Arrival Date: {{other.petArrivalDate}}</h3>
+      <h3 class="length-of-stay">Length of Stay: <span>{{ other.petArrivalDate | moment("from", true) }}</span> </h3>
       <h4 class="pet-description">{{ other.petDescription }}</h4>
       <button v-if="$store.state.user.authorities">Update</button>
     </div>
@@ -45,17 +46,6 @@ export default {
   width: 75%;
   height: auto;
   border-radius: 15px;
-}
-.other {
-  border: 2px solid rgb(112, 85, 28);
-  border-radius: 15px;
-  border-width: 2px;
-  width: 250px;
-  height: 800px;
-  margin: 20px;
-  text-align: center;
-  background-color: rgb(221, 240, 247);
-  color: rgb(49, 63, 165);
 }
 
 .pet-description {

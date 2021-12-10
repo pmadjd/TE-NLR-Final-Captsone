@@ -7,17 +7,10 @@
         id="logo"
       />
     </h1>
-    <!--home is a placeholder for logo-->
-    <img
-      src="https://i.ibb.co/PGMJcjz/dog-and-cat-banner-23.png"
-      alt="shelter banner"
-      border="0"
-      id="banner"
-    />
 
     <div class="well-display">
       <div class="well">
-        <router-link v-bind:to="{ name: 'dogs' }">
+        <router-link v-bind:to="{ name: 'Dogs' }">
           <img
             src="https://www.montgomerycountymd.gov/animalservices/Resources/Images/dogicon.png"
             alt="dog icon"
@@ -26,7 +19,7 @@
         </router-link>
       </div>
       <div class="well">
-        <router-link v-bind:to="{ name: 'cats' }">
+        <router-link v-bind:to="{ name: 'Cats' }">
           <img
             src="https://www.montgomerycountymd.gov/animalservices/Resources/Images/caticon.png"
             alt="cat icon"
@@ -35,7 +28,7 @@
         </router-link>
       </div>
       <div class="well">
-        <router-link v-bind:to="{ name: 'others' }">
+        <router-link v-bind:to="{ name: 'Others' }">
           <img
             src="https://www.montgomerycountymd.gov/animalservices/Resources/Images/othericon.png"
             alt="other pets icon"
@@ -44,6 +37,13 @@
         </router-link>
       </div>
     </div>
+
+    <img
+      src="https://i.ibb.co/PGMJcjz/dog-and-cat-banner-23.png"
+      alt="shelter banner"
+      border="0"
+      id="banner"
+    />
   </div>
 </template>
 
@@ -56,7 +56,7 @@ export default {
 <style>
 h1 {
   text-align: center;
-  margin-top: 0px;
+  margin-top: 5px;
   margin-bottom: 2px;
   display: flex;
   justify-content: center;
@@ -75,7 +75,7 @@ div.well-display {
   font-family: "Nunito Sans", sans-serif;
 }
 div.well {
-  margin: 20px;
+  margin: 40px;
   margin-top: 2px;
 }
 .well-text {
