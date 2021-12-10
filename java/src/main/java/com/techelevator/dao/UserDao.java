@@ -19,7 +19,7 @@ public interface UserDao {
     List<User> findAllPending();
 
     User createUser(String username, String password, String role, String firstname, String lastname,
-                       String email, String phonenum);
+                       String email, String phone);
 
     User updateIsApproved(User user, Long id);
 
