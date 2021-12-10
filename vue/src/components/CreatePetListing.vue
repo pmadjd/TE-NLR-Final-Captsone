@@ -15,9 +15,9 @@
     <div class="species-input">
       <label for="species">Species: </label>
       <select name="petType" id="species-select" v-model="pet.petType">
-        <option value="dog">Dog</option>
-        <option value="cat">Cat</option>
-        <option value="other">Other</option>
+        <option value="Dog">Dog</option>
+        <option value="Cat">Cat</option>
+        <option value="Other">Other</option>
       </select>
     </div>
     <div class="gender-input">
@@ -26,13 +26,13 @@
         type="radio"
         name="petGender"
         v-model="pet.petGender"
-        value="Male"
+        value="M"
       /><label for="male">Male</label>
       <input
         type="radio"
         name="petGender"
         v-model="pet.petGender"
-        value="Female"
+        value="F"
       />
       <label for="female">Female</label>
     </div>
@@ -52,7 +52,7 @@
       <label for="photo">Photo URL: </label>
       <input type="text" name="petPhoto" v-model="pet.petPhoto" />
     </div>
-    <button v-on:click="addNewPet" type="submit">Add Pet</button>
+    <button>Add Pet</button>
   </form>
 </template>
 
@@ -76,8 +76,9 @@ export default {
   methods: {
     addNewPet() {
       petService.addNewPet(this.pet).then((response) => {
+        console.log(response.status + "   response status") 
         if (response.status === 201) {
-          this.$router.push("/" + this.pet.petType);
+          this.$router.push({name: `${this.pet.petType}s`});
         }
       });
     },

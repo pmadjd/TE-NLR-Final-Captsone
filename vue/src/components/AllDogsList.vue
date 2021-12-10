@@ -7,15 +7,15 @@
         id="logo"
       />
     </h1>
-    <div class="dog" v-for="dog in dogs" v-bind:key="dog.petId">
-      <h2 class="pet-name">{{ dog.pet_name }}</h2>
+    <div class="pet-card" v-for="dog in dogs" v-bind:key="dog.petId">
+      <h2 class="pet-name">{{ dog.petName }}</h2>
       <h3 class="pet-id">Pet ID: {{ dog.petId }}</h3>
       <img v-bind:src="dog.petPhoto" alt="dog photo" id="pet-photo" />
       <h3 class="pet-gender">Gender: {{ dog.petGender }}</h3>
       <h3 class="pet-breed">Breed: {{ dog.petBreed }}</h3>
       <h3 class="pet-birthdate">Birthdate: {{ dog.petBirthdate }}</h3>
       <h3 class="arrival-date">Arrival Date: {{ dog.petArrivalDate }}</h3>
-      <!-- <h3 class="length-of-stay">Length of Stay: moment({{dog.petArrivalDate}}, "YYYYMMDD").fromNow(); </h3> -->
+      <h3 class="length-of-stay">Length of Stay: <span>{{ dog.petArrivalDate | moment("from", true) }}</span> </h3>
       <h4 class="pet-description">{{ dog.petDescription }}</h4>
       <button v-if="$store.state.user.authorities">Update</button>
     </div>
@@ -37,7 +37,9 @@ export default {
       // console.log(response.data);
       this.dogs = response.data;
     });
+    //do we use moment here?
   },
+
 };
 </script>
 
@@ -47,7 +49,7 @@ export default {
   height: auto;
   border-radius: 15px;
 }
-.dog {
+.pet-card {
   border: 2px solid rgb(112, 85, 28);
   border-radius: 15px;
   border-width: 2px;

@@ -63,7 +63,7 @@ const router = new Router({
     },
     {
       path: "/cat",
-      name: "cats",
+      name: "Cats",
       component: Cats,
       meta: {
         requiresAuth: false
@@ -71,7 +71,7 @@ const router = new Router({
     },
     {
       path: "/dog",
-      name: "dogs",
+      name: "Dogs",
       component: Dogs,
       meta: {
         requiresAuth: false
@@ -79,7 +79,7 @@ const router = new Router({
     },
     {
       path: "/other",
-      name: "others",
+      name: "Others",
       component: Others,
       meta: {
         requiresAuth: false

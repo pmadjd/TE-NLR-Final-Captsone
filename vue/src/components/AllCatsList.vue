@@ -7,14 +7,15 @@
         id="logo"
       />
     </h1>
-    <div class="cat" v-for="cat in cats" v-bind:key="cat.petId">
-      <h2 class="pet-name">{{ cat.pet_name }}</h2>
+    <div class="pet-card" v-for="cat in cats" v-bind:key="cat.petId">
+      <h2 class="pet-name">{{ cat.petName }}</h2>
       <h3 class="pet-id">Pet ID: {{ cat.petId }}</h3>
       <img v-bind:src="cat.petPhoto" alt="cat photo" id="pet-photo" />
       <h3 class="pet-gender">Gender: {{ cat.petGender }}</h3>
       <h3 class="pet-breed">Breed: {{ cat.petBreed }}</h3>
       <h3 class="pet-birthdate">Birthdate: {{ cat.petBirthdate }}</h3>
       <h3 class="arrival-date">Arrival Date: {{cat.petArrivalDate}}</h3>
+      <h3 class="length-of-stay">Length of Stay: <span>{{ cat.petArrivalDate | moment("from", true) }}</span> </h3>
       <h4 class="pet-description">{{ cat.petDescription }}</h4>
       <button v-if="$store.state.user.authorities">Update</button>
     </div>
@@ -44,17 +45,6 @@ export default {
   width: 75%;
   height: auto;
   border-radius: 15px;
-}
-.cat {
-  border: 2px solid rgb(112, 85, 28);
-  border-radius: 15px;
-  border-width: 2px;
-  width: 250px;
-  height: 800px;
-  margin: 20px;
-  text-align: center;
-  background-color: rgb(221, 240, 247);
-  color: rgb(49, 63, 165);
 }
 
 .pet-description {
