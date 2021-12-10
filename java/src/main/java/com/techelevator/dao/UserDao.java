@@ -19,7 +19,7 @@ public interface UserDao {
 
     User updateIsApproved(User user, Long id);
 
-    User updateIsRejected(User user, Long id);
+//    User updateIsRejected(User user, Long id);
 
-    User create(User user);
+//    User create(User user);
 }
