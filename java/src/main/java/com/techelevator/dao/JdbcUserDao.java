@@ -52,6 +52,34 @@ public class JdbcUserDao implements UserDao {
         return users;
     }
 
+//    @Override
+//    public List<User> findAllApproved() {
+//        List<User> users = new ArrayList<>();
+//        String sql = "select is_approved from users WHERE true";
+//
+//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+//        while(results.next()) {
+//            User user = mapRowToUser(results);
+//            users.add(user);
+//        }
+//
+//        return users;
+//    }
+
+//    @Override
+//    public List<User> findAll() {
+//        List<User> users = new ArrayList<>();
+//        String sql = "select * from users";
+//
+//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+//        while(results.next()) {
+//            User user = mapRowToUser(results);
+//            users.add(user);
+//        }
+//
+//        return users;
+//    }
+
     @Override
     public User findByUsername(String username) throws UsernameNotFoundException {
         for (User user : this.findAll()) {

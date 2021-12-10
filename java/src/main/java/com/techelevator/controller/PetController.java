@@ -36,13 +36,13 @@ public class PetController {
         return petDao.getOthers();
     }
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-    @RequestMapping(path = "/addpet", method = RequestMethod.POST)
+    @RequestMapping(path = "/addPet", method = RequestMethod.POST)
     public Pet createPet(@RequestBody Pet pet) {
         return petDao.createPet(pet);
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
-    @RequestMapping(path = "/updatepet", method = RequestMethod.PUT)
+    @RequestMapping(path = "/updatePet", method = RequestMethod.PUT)
     public Pet updatePet(@RequestBody Pet pet, Long petId) {
         return petDao.updatePet(pet, petId);
     }
