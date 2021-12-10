@@ -54,7 +54,7 @@ public class JdbcUserDao implements UserDao {
     @Override
     public List<User> findAllApproved() {
         List<User> users = new ArrayList<>();
-        String sql = "SELECT is_approved FROM users WHERE is_approved = true;";
+        String sql = "SELECT * FROM users WHERE is_approved = true;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             User user = mapRowToUser(results);
@@ -66,7 +66,7 @@ public class JdbcUserDao implements UserDao {
     @Override
     public List<User> findAllPending() {
         List<User> users = new ArrayList<>();
-        String sql = "SELECT username, is_approved FROM users WHERE is_approved = false;";
+        String sql = "SELECT * FROM users WHERE is_approved = false;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             User user = mapRowToUser(results);
@@ -138,12 +138,12 @@ public class JdbcUserDao implements UserDao {
         user.setPassword(rs.getString("password_hash"));
         user.setAuthorities(rs.getString("role"));
         user.setActivated(true);
-        user.setFirstname("first_name");
-        user.setLastname("last_name");
-        user.setEmail("email");
-        user.setPhonenum("phone");
-        user.setIsapproved(false);
-        user.setIsrejected(false);
+        user.setFirstname(rs.getString("first_name"));
+        user.setLastname(rs.getString("last_name"));
+        user.setEmail(rs.getString("email"));
+        user.setPhonenum(rs.getString("phone"));
+        user.setIsapproved(rs.getBoolean("is_approved"));
+        user.setIsrejected(rs.getBoolean("is_rejected"));
         return user;
     }
 }
