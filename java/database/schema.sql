@@ -43,9 +43,15 @@ CREATE TABLE pets (
         
         );
 
-INSERT INTO users (username,password_hash,role, is_approved) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', TRUE);
-INSERT INTO users (username,password_hash,role, is_approved) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN', TRUE);
-INSERT INTO users (username,password_hash,role, first_name, last_name, email, phone) VALUES ('Bob','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'Bob', 'Jones', 'bob@bob.com', '1234567890');
+INSERT INTO users (username,password_hash,role, new_user, is_approved) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', FALSE, TRUE);
+INSERT INTO users (username,password_hash,role, new_user, is_approved) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN', FALSE, TRUE);
+INSERT INTO users (username,password_hash,role, first_name, last_name, email, phone) VALUES ('BobJ','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'Bob', 'Jones', 'bob@bob.com', '0123456789');
+INSERT INTO users (username,password_hash,role, first_name, last_name, email, phone, new_user, is_approved) VALUES ('JaneS','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'Jane', 'Smith', 'jane@jane.com', '1234567890', FALSE, TRUE);
+INSERT INTO users (username,password_hash,role, first_name, last_name, email, phone, new_user, is_approved) VALUES ('JoeB','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'Joe', 'Barnes', 'joe@joe.com', '2345678901', FALSE, TRUE);
+INSERT INTO users (username,password_hash,role, first_name, last_name, email, phone, new_user, is_approved) VALUES ('FeliciaA','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'Felicia', 'Adams', 'felicia@felicia.com', '3456789012', FALSE, TRUE);
+INSERT INTO users (username,password_hash,role, first_name, last_name, email, phone, new_user, is_approved) VALUES ('JenniferW','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'Jennifer', 'Williams', 'jennifer@jennifer.com', '4567890123', FALSE, TRUE);
+INSERT INTO users (username,password_hash,role, first_name, last_name, email, phone, new_user, is_approved) VALUES ('AnneF','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'Anne', 'Farley', 'anne@anne.com', '5678901234', FALSE, TRUE);
+
 
 INSERT INTO pets (pet_id, pet_name, pet_type, pet_gender, pet_breed, pet_birthdate, arrival_date, pet_description, pet_photo)
 VALUES 

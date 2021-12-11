@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.PetDao;
 import com.techelevator.dao.UserDao;
+import com.techelevator.model.Pet;
 import com.techelevator.model.User;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -47,5 +48,11 @@ public class UserController {
     @RequestMapping(path = "/rejectUser", method = RequestMethod.PUT)
     public User updateIsRejected(@RequestBody User user, Long id) {
         return userDao.updateIsRejected(user, id);
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    @RequestMapping(path = "/getUserById/{userId}", method = RequestMethod.GET)
+    public User getUserById(@PathVariable Long userId) {
+        return userDao.getUserById(userId);
     }
 }
