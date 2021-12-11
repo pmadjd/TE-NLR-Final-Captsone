@@ -1,15 +1,16 @@
 <template>
   <div>
-    <update-vol-status></update-vol-status>
+    <pending-vol></pending-vol>
   </div>
 </template>
 
 <script>
-import UpdateVolStatus from "../components/UpdateVolStatus.vue";
+import PendingVol from "../components/PendingVol.vue";
+
 export default {
   name: "pending-vols-page",
   components: {
-    UpdateVolStatus,
+    PendingVol
   },
 };
 </script>

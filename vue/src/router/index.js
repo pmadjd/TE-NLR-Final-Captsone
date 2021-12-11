@@ -13,6 +13,7 @@ import NotFound from '../views/NotFoundView.vue'
 import PendingVols from '../views/PendingVolsView.vue'
 import Directory from '../views/VolDirectoryView.vue'
 import AddPet from '../views/AddPetListingView.vue'
+import EditUserStatus from '../views/EditUserStatusView.vue'
 
 Vue.use(Router)
 
@@ -99,9 +100,18 @@ const router = new Router({
       component: NotFound
     },
     {
-      path: "/pending-vols",
+      path: "/pending",
       name: "pendingVols",
       component: PendingVols,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    //added below - need to create another component
+    {
+      path: "/edit-user/:id",
+      name: "editUser",
+      component: EditUserStatus,
       meta: {
         requiresAuth: true
       }

@@ -17,7 +17,8 @@
       <h3 class="arrival-date">Arrival Date: {{cat.petArrivalDate}}</h3>
       <h3 class="length-of-stay">Length of Stay: <span>{{ cat.petArrivalDate | moment("from", true) }}</span> </h3>
       <h4 class="pet-description">{{ cat.petDescription }}</h4>
-      <button v-if="$store.state.user.authorities">Update</button>
+      <button v-if="$store.state.user.authorities" v-on:click= "onUpdate(cat.petId)">Update </button> 
+      <!-- <button v-if="$store.state.user.authorities"> Mark Adopted</button> -->
     </div>
   </div>
 </template>
@@ -37,6 +38,11 @@ export default {
       this.cats = response.data;
     });
   },
+  methods: {
+    onUpdate(petId) {
+      this.$router.push({name:'editListing', params: {id: petId}})
+    }
+  }
 };
 </script>
 

@@ -8,7 +8,10 @@
 import UpdatePetListing from "../components/UpdatePetListing.vue"
 
 export default{
-  components: { UpdatePetListing },
+  name: "edit-listing-page",
+  components: { 
+    UpdatePetListing 
+    },
   }
 </script>
 

@@ -6,10 +6,9 @@ const http = axios.create({
 
 export default {
 
-//for registerview where the apply/register button adds a user to the usertable
-//WILL NEED TO CHANGE ALL PATHS HERE WHEN THE BACK END IS CREATED
+//?????????? check put methods
 
-allUsers(){
+getAllUsers(){
     return http.get('/listOfUsers')
 },
 
@@ -17,16 +16,23 @@ getApprovedUsers(){
     return http.get('/approved')
 },
 
-pendingUsers(){
+getPendingUsers(){
     return http.get('/pending')
 },
 
-updateApproved(user, userId){
-    return http.put('/approveUser', user, userId)
+approvePending(user){
+    // user.userId = userId
+    return http.put('/approveUser', user)
 },
 
-rejectPending(user, userId){
-    return http.put('/rejectUser', user, userId)
+rejectPending(user){
+    return http.put('/rejectUser', user)
+},
+
+
+//THIS NEEDS TO BE ADDED ON THE USER CONTROLLER ON SERVER SIDE
+getUserById(id) {
+    return http.get(`/users/${id}`);
 }
 
 }

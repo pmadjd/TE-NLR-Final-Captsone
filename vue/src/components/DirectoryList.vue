@@ -10,16 +10,13 @@
         </tr>
       </thead>
       <tbody>
+        <!-- will need to test this with more users added seems to go off of name in registerDTO?? -->
         <tr v-for="user in approvedUsers" v-bind:key="user.id">
-        <td>{{user.firstname}}</td>
-        <td>{{user.lastname}}</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.email}}</td>
         </tr>
-        <!-- <tr v-for="user in approvedUsers" v-bind:key="user.role">
-          <td>{{ user.firstName }}</td> -->
-          <!-- <td>{{ user.lastName }}</td>
-        <td>{{ user.phone }}</td>
-        <td>{{ user.email }}</td> -->
-        <!-- </tr> -->
       </tbody>
     </table>
   </div>
@@ -34,10 +31,10 @@ export default {
     return {
       approvedUsers: [
           {
-        firstname: "",
-        lastname: "",
+        firstName: "",
+        lastName: "",
         phone: "",
-        email: "",
+        email: ""
        },
       ],
     };

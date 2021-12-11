@@ -18,6 +18,7 @@
       <h3 class="length-of-stay">Length of Stay: <span>{{ dog.petArrivalDate | moment("from", "now", true) }}</span> </h3>
       <h4 class="pet-description">{{ dog.petDescription }}</h4>
       <button v-if="$store.state.user.authorities" v-on:click= "onUpdate(dog.petId)">Update</button>
+       <!-- <button v-if="$store.state.user.authorities"> Mark Adopted</button> -->
     </div>
   </div>
 </template>

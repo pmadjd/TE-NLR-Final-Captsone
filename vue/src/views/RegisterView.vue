@@ -46,7 +46,7 @@
         id="firstName"
         class="form-control"
         placeholder="First Name"
-        v-model="user.firstName"
+        v-model="user.firstname"
         required
         autofocus
       />
@@ -56,7 +56,7 @@
         id="lastName"
         class="form-control"
         placeholder="Last Name"
-        v-model="user.lastName"
+        v-model="user.lastname"
         required
         autofocus
       />
@@ -77,7 +77,7 @@
         id="phoneNumber"
         class="form-control"
         placeholder="Phone Number"
-        v-model="user.phoneNumber"
+        v-model="user.phonenum"
         required
         autofocus
       />
@@ -93,7 +93,6 @@
 
 <script>
 import authService from "../services/AuthService";
-import userService from "../services/UserService";
 
 export default {
   name: "register",
@@ -104,49 +103,16 @@ export default {
         password: "",
         confirmPassword: "",
         role: "user",
-        firstName: "",
-        lastName: "",
+        firstname: "",
+        lastname: "",
         email: "",
-        phoneNumber: "",
-        newUser: "true",
-        isApproved: "false"
+        phonenum: ""
       },
       registrationErrors: false,
       registrationErrorMsg: "There were problems registering this user.",
     };
   },
   methods: {
-    //??????ADDED THIS PART! MAY NEED TO EDIT SAVINGUSERS and the service method name!
-    saveUser() {
-      const newUser = {
-        username: this.user.username,
-        password: this.user.password,
-        role: this.user.role,
-        firstName: this.user.firstName,
-        last_Name: this.user.lastName,
-        email: this.user.email,
-        phoneNumber: this.user.phoneNumber,
-        newUser: this.user.newUser,
-        isApproved: this.user.isApproved
-      }
-      userService
-      .addUser(newUser)
-      .then(response => {
-        if(response.status === 201) {
-          this.$router.push('/');
-        }
-      })
-      .catch((error) => {
-          //if it fails then we should set the error message
-          if (error.response){
-            this.errorMsg = "Error creating new user. Response was: "+error.response.statusText;
-          } else if (error.request){
-            this.errorMsg= "Error creating new user. Server could not be reached.";
-          } else {
-            this.errorMsg = "Error creating new user. Could not create request";
-          }
-        });  
-    },
     register() {
       if (this.user.password != this.user.confirmPassword) {
         this.registrationErrors = true;

@@ -17,18 +17,21 @@ export default {
     getOthersList() {
         return http.get('/others');
     },
-    // ?????
+ 
     addNewPet(pet){
         return http.post('/addPet', pet);
     },
-    // ?????
-    updatePet(pet, petId){
-        pet.petId = petId;
+
+    // ???????????????????????
+    // updatePet(pet, petId){
+    updatePet(pet){
+        // pet.petId = petId;
         return http.put('/updatePet', pet);
     },
-    getPetById (id){
-        return Promise.resolve({petName:"Clifford2", petId: id});
 
+    getPetById(id) {
+        // return Promise.resolve({petName:"Clifford2", petId: id});
+        return http.get(`/pets/${id}`);
     }
 
 }
