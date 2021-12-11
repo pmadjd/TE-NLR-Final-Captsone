@@ -56,7 +56,7 @@ public class JdbcPetDao implements PetDao {
     @Override
     public Pet getPetById(Long petId) {
         Pet pet = null;
-        String sql = "SELECT * FROM pets WHERE pet_id = ?;";
+        String sql = "SELECT * FROM pets WHERE pet_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, petId);
         if (results.next()) {
             pet = mapRowToPet(results);
@@ -101,10 +101,10 @@ public class JdbcPetDao implements PetDao {
         pet.setPetGender(rs.getString("pet_gender"));
         pet.setPetBreed(rs.getString("pet_breed"));
         pet.setPetBirthdate(rs.getDate("pet_birthdate"));
+        pet.setPetArrivalDate(rs.getDate("arrival_date"));
         pet.setPetDescription(rs.getString("pet_description"));
         pet.setPetPhoto(rs.getString("pet_photo"));
         pet.setPetAdopterInfo(rs.getString("adopter_info"));
-        pet.setPetArrivalDate(rs.getDate("arrival_date"));
         return pet;
     }
 }

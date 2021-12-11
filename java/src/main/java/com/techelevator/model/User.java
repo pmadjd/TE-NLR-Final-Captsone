@@ -15,12 +15,12 @@ public class User {
    @JsonIgnore
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
-   private String firstname;
-   private String lastname;
+   private String firstName;
+   private String lastName;
    private String email;
    private String phone;
-   private boolean isapproved;
-   private boolean isrejected;
+   private boolean isApproved;
+   private boolean isRejected;
 
 
    public User() { }
@@ -30,8 +30,8 @@ public class User {
       this.username = username;
       this.password = password;
       this.activated = true;
-      this.isapproved = false;
-      this.isrejected = false;
+      this.isApproved = false;
+      this.isRejected = false;
    }
 
    public Long getId() {
@@ -74,12 +74,12 @@ public class User {
       this.authorities = authorities;
    }
 
-   public String getFirstname() {
-      return firstname;
+   public String getFirstName() {
+      return firstName;
    }
 
-   public String getLastname() {
-      return lastname;
+   public String getLastName() {
+      return lastName;
    }
 
    public String getEmail() {
@@ -90,12 +90,12 @@ public class User {
       return phone;
    }
 
-   public void setFirstname(String firstname) {
-      this.firstname = firstname;
+   public void setFirstName(String firstName) {
+      this.firstName = firstName;
    }
 
-   public void setLastname(String lastname) {
-      this.lastname = lastname;
+   public void setLastName(String lastName) {
+      this.lastName = lastName;
    }
 
    public void setEmail(String email) {
@@ -106,20 +106,20 @@ public class User {
       this.phone = phone;
    }
 
-   public boolean isIsapproved() {
-      return isapproved;
+   public boolean isApproved() {
+      return isApproved;
    }
 
-   public void setIsapproved(boolean isapproved) {
-      this.isapproved = isapproved;
+   public void setApproved(boolean approved) {
+      this.isApproved = approved;
    }
 
-   public boolean isIsrejected() {
-      return isrejected;
+   public boolean isRejected() {
+      return isRejected;
    }
 
-   public void setIsrejected(boolean isrejected) {
-      this.isrejected = isrejected;
+   public void setRejected(boolean rejected) {
+      this.isRejected = rejected;
    }
 
    public void setAuthorities(String authorities) {

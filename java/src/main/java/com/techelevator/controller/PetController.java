@@ -36,9 +36,8 @@ public class PetController {
         return petDao.getOthers();
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
-    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
-    public Pet getPetById(@PathVariable long petId) {
+    @RequestMapping(path = "/pets/{petId}", method = RequestMethod.GET)
+    public Pet getPetById(@PathVariable Long petId) {
         return petDao.getPetById(petId);
     }
 
