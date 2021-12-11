@@ -11,12 +11,15 @@
       </thead>
       <tbody>
         <tr v-for="user in approvedUsers" v-bind:key="user.id">
-          <!-- user listing goes here -->
-          <td>{{ user.firstname }}</td>
-          <td>{{ user.lastname }}</td>
-          <td>{{ user.phonenum }}</td>
-          <td>{{ user.email }}</td>
+        <td>{{user.firstname}}</td>
+        <td>{{user.lastname}}</td>
         </tr>
+        <!-- <tr v-for="user in approvedUsers" v-bind:key="user.role">
+          <td>{{ user.firstName }}</td> -->
+          <!-- <td>{{ user.lastName }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.email }}</td> -->
+        <!-- </tr> -->
       </tbody>
     </table>
   </div>
@@ -29,7 +32,14 @@ export default {
   name: "approved-users-list",
   data() {
     return {
-      approvedUsers: [],
+      approvedUsers: [
+          {
+        firstname: "",
+        lastname: "",
+        phone: "",
+        email: "",
+       },
+      ],
     };
   },
   created() {
@@ -37,9 +47,7 @@ export default {
       this.approvedUsers = response.data;
     });
   },
-  methods: {
-  
-  },
+  methods: {},
 };
 </script>
 

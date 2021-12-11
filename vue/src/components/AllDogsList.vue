@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import petService from "@/services/PetService";
+import petService from "@/services/PetService.js";
 
 export default {
   name: "dogs-list",

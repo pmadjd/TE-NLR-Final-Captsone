@@ -25,7 +25,7 @@ public class UserController {
         return userDao.findAll();
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+//    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @RequestMapping(path = "/approved", method = RequestMethod.GET)
     public List<User> findAllApproved() {
         return userDao.findAllApproved();
