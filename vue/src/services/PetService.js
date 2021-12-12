@@ -24,10 +24,15 @@ export default {
 
     // ???????????????????????
     // updatePet(pet, petId){
-    updatePet(pet){
-        // pet.petId = petId;
+    updatePet(pet, petId){
+        pet.petId = petId;
         return http.put('/updatePet', pet);
     },
+
+    // updatePet(pet){
+    //     // pet.petId = petId;
+    //     return http.put('/updatePet', pet);
+    // },
 
     getPetById(id) {
         // return Promise.resolve({petName:"Clifford2", petId: id});
