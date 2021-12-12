@@ -77,7 +77,7 @@
         id="phoneNumber"
         class="form-control"
         placeholder="Phone Number"
-        v-model="user.phonenum"
+        v-model="user.phone"
         required
         autofocus
       />
@@ -106,7 +106,7 @@ export default {
         firstname: "",
         lastname: "",
         email: "",
-        phonenum: ""
+        phone: ""
       },
       registrationErrors: false,
       registrationErrorMsg: "There were problems registering this user.",
