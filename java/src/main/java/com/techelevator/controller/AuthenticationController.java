@@ -36,6 +36,7 @@ public class AuthenticationController {
         this.userDao = userDao;
     }
 
+    @ResponseStatus(HttpStatus.CREATED) //this might break something....just added on 12/12
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginDTO loginDto) {
 

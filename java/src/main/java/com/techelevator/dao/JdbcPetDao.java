@@ -93,10 +93,16 @@ public class JdbcPetDao implements PetDao {
 
     public Pet updateIsAdopted(Pet pet, Long id) {
         Pet results = pet;
-        String sql = "UPDATE pets SET is_adopted = true, adopter_info = '?' WHERE pet_id = ?";
-        int newId = jdbcTemplate.update(sql, pet.getPetAdopterInfo(), pet.getPetId());
+        String sql = "UPDATE pets SET is_adopted = true WHERE pet_id = ?";
+        int newId = jdbcTemplate.update(sql, pet.getPetId());
         return getPetById(pet.getPetId());
     }
+//    public Pet updateIsAdopted(Pet pet, Long id) {
+//        Pet results = pet;
+//        String sql = "UPDATE pets SET is_adopted = true, adopter_info = '?' WHERE pet_id = ?";
+//        int newId = jdbcTemplate.update(sql, pet.getPetAdopterInfo(), pet.getPetId());
+//        return getPetById(pet.getPetId());
+//    }
     //Margaret's notes:
     //pass in pet itself instead of individual field
     //run through jdbctemplate.Update
