@@ -66,7 +66,7 @@ public class JdbcUserDao implements UserDao {
     @Override
     public List<User> findAllPending() {
         List<User> users = new ArrayList<>();
-        String sql = "SELECT * FROM users WHERE is_approved = false;";
+        String sql = "SELECT * FROM users WHERE is_approved = FALSE AND is_Rejected = FALSE;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             User user = mapRowToUser(results);
