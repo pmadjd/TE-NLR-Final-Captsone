@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Pet;
+import com.techelevator.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -20,7 +21,7 @@ public class JdbcPetDao implements PetDao {
     @Override
     public List<Pet> getDogs() {
         List<Pet> pets = new ArrayList<>();
-        String sql = "SELECT * FROM pets WHERE pet_type ILIKE('Dog')";
+        String sql = "SELECT * FROM pets WHERE pet_type ILIKE('Dog') AND is_adopted = FALSE";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             Pet pet = mapRowToPet(results);
@@ -32,7 +33,7 @@ public class JdbcPetDao implements PetDao {
     @Override
     public List<Pet> getCats() {
         List<Pet> pets = new ArrayList<>();
-        String sql = "SELECT * FROM pets WHERE pet_type ILIKE('Cat')";
+        String sql = "SELECT * FROM pets WHERE pet_type ILIKE('Cat') AND is_adopted = FALSE";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             Pet pet = mapRowToPet(results);
@@ -44,7 +45,7 @@ public class JdbcPetDao implements PetDao {
     @Override
     public List<Pet> getOthers() {
         List<Pet> pets = new ArrayList<>();
-        String sql = "SELECT * FROM pets WHERE pet_type != 'Dog' AND pet_type != 'Cat'";
+        String sql = "SELECT * FROM pets WHERE pet_type != 'Dog' AND pet_type != 'Cat' AND is_adopted = FALSE";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             Pet pet = mapRowToPet(results);
@@ -88,6 +89,13 @@ public class JdbcPetDao implements PetDao {
         jdbcTemplate.update(sql, pet.getPetName(), pet.getPetType(), pet.getPetGender(),
                 pet.getPetBreed(), pet.getPetBirthdate(), pet.getPetDescription(), pet.getPetPhoto(), pet.getPetAdopterInfo() ,pet.getPetId());
         return result;
+    }
+
+    public Pet updateIsAdopted(Pet pet, Long id) {
+        Pet results = pet;
+        String sql = "UPDATE pets SET is_adopted = true, adopter_info = '?' WHERE pet_id = ?";
+        int newId = jdbcTemplate.update(sql, pet.getPetAdopterInfo(), pet.getPetId());
+        return getPetById(pet.getPetId());
     }
     //Margaret's notes:
     //pass in pet itself instead of individual field
