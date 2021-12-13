@@ -22,27 +22,25 @@ export default {
         return http.post('/addPet', pet);
     },
 
-    // ???????????????????????
+    // // ???????????????????????
+    // // updatePet(pet, petId){
     // updatePet(pet, petId){
-    updatePet(pet, petId){
-        pet.petId = petId;
-        return http.put('/updatePet', pet);
-    },
-
-    //with path variable:
-    // updatePet(pet){
-    //     // pet.petId = petId;
-    //     return http.put(`/updatePet/${pet.id}`, pet);
+    //     pet.petId = petId;
+    //     return http.put('/updatePet', pet);
     // },
 
-    updateAdopted(pet, petId) {
-        pet.pedId = petId;
-        return http.put('/updateIsAdopted', pet);
+    updatePet(pet){
+        // pet.petId = petId;
+        return http.put(`/updatePet/${pet.id}`, pet);
     },
 
-    getPetById(id) {
+    updateAdopted(pet) {
+        return http.put(`/updateIsAdopted/${pet.id}`, pet);
+    },
+
+    getPetById(petId) {
         // return Promise.resolve({petName:"Clifford2", petId: id});
-        return http.get(`/pets/${id}`);
+        return http.get(`/pets/${petId}`);
     }
 
 }

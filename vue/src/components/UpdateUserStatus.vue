@@ -42,12 +42,7 @@ export default {
   },
   created() {
     userService.getUserById(this.$route.params.id).then((response) => {
-      this.user.firstName = response.firstName;
-      this.user.lastName = response.lastName;
-      this.user.phone = response.phone;
-      this.user.email = response.email;
-      this.user.isApproved = response.isApproved;
-      this.user.isRejected = response.isRejected;
+        this.user = response.data;
     });
   },
   methods: {

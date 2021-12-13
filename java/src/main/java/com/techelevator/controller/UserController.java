@@ -39,14 +39,14 @@ public class UserController {
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @RequestMapping(path = "/approveUser", method = RequestMethod.PUT)
-    public User updateIsApproved(@RequestBody User user, Long id) {
+    @RequestMapping(path = "/approveUser/{id}", method = RequestMethod.PUT)
+    public User updateIsApproved(@RequestBody User user, @PathVariable Long id) {
         return userDao.updateIsApproved(user, id);
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @RequestMapping(path = "/rejectUser", method = RequestMethod.PUT)
-    public User updateIsRejected(@RequestBody User user, Long id) {
+    @RequestMapping(path = "/rejectUser/{id}", method = RequestMethod.PUT)
+    public User updateIsRejected(@RequestBody User user, @PathVariable Long id) {
         return userDao.updateIsRejected(user, id);
     }
 

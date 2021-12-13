@@ -62,7 +62,7 @@ methods:{
   height: 800px;
   margin: 20px;
   text-align: center;
-  background-color: rgb(221, 240, 247);
+  background-color: rgb(223, 239, 255);
   color: rgb(49, 63, 165);
 }
 

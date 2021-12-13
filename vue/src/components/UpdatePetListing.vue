@@ -72,16 +72,8 @@ export default {
   },
   created() {
     petService.getPetById(this.$route.params.id).then((response) => {
-      this.pet.petName = response.petName;
-      this.petPhoto = response.petPhoto;
-      this.petGender = response.petGender;
-      this.petBreed = response.petBreed;
-      this.petBirthdate = response.petBirthdate;
-      this.petArrivalDate = response.petArrivalDate;
-      this.petDescription = response.petDescription;
-      this.petAdopterInfo = response.petAdopterInfo;
-      this.petIsAdopted = response.petIsAdopted;
-      this.petType = response.petType;
+      // console.log(response.data);
+      this.pet = response.data;
     });
   },
   methods: {
@@ -89,6 +81,7 @@ export default {
       petService
       .updatePet(this.pet)
       .then(response => {
+        console.log(response);
         if(response.status === 200) {
           this.$router.push({name: `${this.pet.petType}s`});
           //or route to homepage??
