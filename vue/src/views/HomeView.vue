@@ -76,7 +76,8 @@ div.well-display {
 }
 div.well {
   margin: 40px;
-  margin-top: 2px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .well-text {
   text-decoration: none;

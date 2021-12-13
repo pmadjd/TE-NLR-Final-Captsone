@@ -1,5 +1,12 @@
 <template>
-  <div class="user-list">
+  <div class="text-center">
+    <h1>
+      <img
+        src="https://i.ibb.co/LP8ZpR2/Image-from-i-OS-10.png"
+        alt="shelter logo"
+        id="logo"
+      />
+    </h1>
     <table>
       <thead>
         <tr>
@@ -12,10 +19,10 @@
       <tbody>
         <!-- will need to test this with more users added seems to go off of name in registerDTO?? -->
         <tr v-for="user in approvedUsers" v-bind:key="user.id">
-        <td>{{user.firstName}}</td>
-        <td>{{user.lastName}}</td>
-        <td>{{user.phone}}</td>
-        <td>{{user.email}}</td>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.email }}</td>
         </tr>
       </tbody>
     </table>
@@ -30,12 +37,12 @@ export default {
   data() {
     return {
       approvedUsers: [
-          {
-        firstName: "",
-        lastName: "",
-        phone: "",
-        email: ""
-       },
+        {
+          firstName: "",
+          lastName: "",
+          phone: "",
+          email: "",
+        },
       ],
     };
   },

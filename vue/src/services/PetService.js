@@ -1,25 +1,25 @@
 import axios from 'axios';
 
-const http =axios.create({
-    baseURL: "http://localhost:8080"
-});
+// const axios =axios.create({
+//     baseURL: "http://localhost:8080"
+// });
 
 export default {
 
     getDogList() {
-        return http.get('/dogs');
+        return axios.get('/dogs');
     },
 
     getCatList() {
-        return http.get('/cats');
+        return axios.get('/cats');
     },
 
     getOthersList() {
-        return http.get('/others');
+        return axios.get('/others');
     },
  
     addNewPet(pet){
-        return http.post('/addPet', pet);
+        return axios.post('/addPet', pet);
     },
 
     // // ???????????????????????
@@ -31,16 +31,16 @@ export default {
 
     updatePet(pet){
         // pet.petId = petId;
-        return http.put(`/updatePet/${pet.id}`, pet);
+        return axios.put(`/updatePet/${pet.petId}`, pet);
     },
 
     updateAdopted(pet) {
-        return http.put(`/updateIsAdopted/${pet.id}`, pet);
+        return axios.put(`/updateIsAdopted/${pet.petId}`, pet);
     },
 
     getPetById(petId) {
         // return Promise.resolve({petName:"Clifford2", petId: id});
-        return http.get(`/pets/${petId}`);
+        return axios.get(`/pets/${petId}`);
     }
 
 }

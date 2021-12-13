@@ -109,7 +109,7 @@ public class JdbcUserDao implements UserDao {
                     return ps;
                 }
                 , keyHolder) == 1;
-        Long newUserId = (Long) keyHolder.getKeys().get(id_column);
+        Long newUserId = Long.parseLong(keyHolder.getKeys().get(id_column).toString());
         User user = new User();
 
         return getUserById(newUserId);

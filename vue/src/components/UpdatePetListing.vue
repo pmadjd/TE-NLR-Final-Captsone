@@ -6,7 +6,15 @@
 </template> -->
 
 <template>
-  <form v-on:submit.prevent>
+  <form v-on:submit.prevent class="text-center">
+    <h1>
+      <img
+        src="https://i.ibb.co/LP8ZpR2/Image-from-i-OS-10.png"
+        alt="shelter logo"
+        id="logo"
+      />
+    </h1>
+    <h1>Update Pet Listing</h1>
     <div class="field">
       <label for="petName">Name: </label>
       <input name="Name" type="text" v-model="pet.petName" />
@@ -15,19 +23,19 @@
       <label for="petPhoto">Photo: </label>
       <input name="Photo" type="text" v-model="pet.petPhoto" />
     </div>
-     <div class="field">
-      <label for="petGender">Gender: </label>
+    <div class="field">
+      <label for="petGender">Sex: </label>
       <input name="Gender" type="text" v-model="pet.petGender" />
     </div>
-     <div class="field">
-      <label for="petBreed">Breed:   </label>
+    <div class="field">
+      <label for="petBreed">Breed: </label>
       <input name="Breed" type="text" v-model="pet.petBreed" />
     </div>
-     <div class="field">
+    <div class="field">
       <label for="petBirthdate">Birthdate: </label>
       <input name="Birthdate" type="text" v-model="pet.petBirthdate" />
     </div>
-     <div class="field">
+    <div class="field">
       <label for="petArrivalDate">Arrival Date: </label>
       <input name="Arrival Date" type="text" v-model="pet.petArrivalDate" />
     </div>
@@ -37,9 +45,14 @@
     </div>
     <div class="field">
       <label for="markAdopted">Adopted </label>
-      <input name="Mark Adopted" type="checkbox" v-on:click="updateStatus" v-model="pet.petIsAdopted" />
+      <input
+        name="Mark Adopted"
+        type="checkbox"
+        v-on:click="updateStatus"
+        v-model="pet.petIsAdopted"
+      />
     </div>
-     <div class="field">
+    <div class="field">
       <label for="AdopterInfo">Adopter: </label>
       <textarea name="Adopter" type="text" v-model="pet.petAdopterInfo" />
     </div>
@@ -66,7 +79,7 @@ export default {
         petDescription: "",
         petAdopterInfo: "",
         petIsAdopted: false,
-        petType: ""
+        petType: "",
       },
     };
   },
@@ -79,47 +92,53 @@ export default {
   methods: {
     updatePetListing() {
       petService
-      .updatePet(this.pet)
-      .then(response => {
-        console.log(response);
-        if(response.status === 200) {
-          this.$router.push({name: `${this.pet.petType}s`});
-          //or route to homepage??
-        }
-      })
-       .catch((error) => {
-          if (error.response){
-            this.errorMsg = "Error updating pet. Response was: "+error.response.statusText;
-          } else if (error.request){
-            this.errorMsg= "Error updating pet. Server could not be reached.";
+        .updatePet(this.pet)
+        .then((response) => {
+          console.log(response);
+          if (response.status === 200) {
+            this.$router.push({ name: `${this.pet.petType}s` });
+            //or route to homepage??
+          }
+        })
+        .catch((error) => {
+          if (error.response) {
+            this.errorMsg =
+              "Error updating pet. Response was: " + error.response.statusText;
+          } else if (error.request) {
+            this.errorMsg = "Error updating pet. Server could not be reached.";
           } else {
             this.errorMsg = "Error updating pet. Could not create request";
           }
-        });  
+        });
     },
     updateStatus() {
       petService
-      .updateAdopted(this.pet) //petId???
-      .then(response => {
-        if(response.status === 200) {
-          // this.$router.push({name: `${this.pet.petType}s`});
-          //or route to homepage??
-          this.responseMsg = "Successfully updated."
-        }
-      })
-      .catch((error) => {
-          if (error.response){
-            this.errorMsg = "Error updating pet. Response was: "+error.response.statusText;
-          } else if (error.request){
-            this.errorMsg= "Error updating pet. Server could not be reached.";
+        .updateAdopted(this.pet) //petId???
+        .then((response) => {
+          if (response.status === 200) {
+            // this.$router.push({name: `${this.pet.petType}s`});
+            //or route to homepage??
+            this.responseMsg = "Successfully updated.";
+          }
+        })
+        .catch((error) => {
+          if (error.response) {
+            this.errorMsg =
+              "Error updating pet. Response was: " + error.response.statusText;
+          } else if (error.request) {
+            this.errorMsg = "Error updating pet. Server could not be reached.";
           } else {
             this.errorMsg = "Error updating pet. Could not create request";
           }
-        });  
-    }
-  }
+        });
+    },
+  },
 };
 </script>
 
 <style>
+h1 {
+  margin-bottom: 20px;
+  color: rgb(49, 63, 165)
+}
 </style>

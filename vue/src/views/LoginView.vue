@@ -134,7 +134,7 @@ export default {
   margin-bottom: 20px;
   margin-top: 20px;
   padding: 6px 20px;
-  color: #000;
+  color: rgb(37, 47, 126);
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
   word-wrap: break-word;
 }

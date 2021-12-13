@@ -11,7 +11,7 @@
       <h2 class="pet-name">{{ other.petName }}</h2>
       <h3 class="pet-id">Pet ID: {{ other.petId }}</h3>
       <img v-bind:src="other.petPhoto" alt="other photo" id="pet-photo" />
-      <h3 class="pet-gender">Gender: {{ other.petGender }}</h3>
+      <h3 class="pet-gender">Sex: {{ other.petGender }}</h3>
       <h3 class="pet-breed">Breed: {{ other.petBreed }}</h3>
       <h3 class="pet-birthdate">Birthdate: {{ other.petBirthdate }}</h3>
       <h3 class="arrival-date">Arrival Date: {{other.petArrivalDate}}</h3>

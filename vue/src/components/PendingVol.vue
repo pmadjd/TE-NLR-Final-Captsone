@@ -1,5 +1,12 @@
 <template>
-  <div class="pending-list">
+  <div class="text-center">
+    <h1>
+      <img
+        src="https://i.ibb.co/LP8ZpR2/Image-from-i-OS-10.png"
+        alt="shelter logo"
+        id="logo"
+      />
+    </h1>
     <table>
       <thead>
         <tr>
@@ -16,7 +23,7 @@
           <td>{{ user.lastName }}</td>
           <td>{{ user.phone }}</td>
           <td>{{ user.email }}</td>
-          <td><button v-on:click= "onUpdate(user.id)">Update</button></td>
+          <td><button v-on:click="onUpdate(user.id)">Update</button></td>
         </tr>
       </tbody>
     </table>
@@ -47,10 +54,9 @@ export default {
   },
   methods: {
     onUpdate(id) {
-      this.$router.push({name: 'editUser', params: {id: id}})
-    }
-
-  }
+      this.$router.push({ name: "editUser", params: { id: id } });
+    },
+  },
 };
 </script>
 
