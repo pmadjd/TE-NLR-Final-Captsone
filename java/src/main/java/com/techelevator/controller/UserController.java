@@ -51,7 +51,7 @@ public class UserController {
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-    @RequestMapping(path = "/getUserById/{userId}", method = RequestMethod.GET)
+    @RequestMapping(path = "/users/{userId}", method = RequestMethod.GET)
     public User getUserById(@PathVariable Long userId) {
         return userDao.getUserById(userId);
     }

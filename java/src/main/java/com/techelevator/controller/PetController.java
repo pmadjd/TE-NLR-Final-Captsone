@@ -49,7 +49,7 @@ public class PetController {
         return petDao.createPet(pet);
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
+//    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
     @RequestMapping(path = "/updatePet", method = RequestMethod.PUT)
     public Pet updatePet(@RequestBody Pet pet, Long petId) {
         return petDao.updatePet(pet, petId);

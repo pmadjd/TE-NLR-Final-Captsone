@@ -29,8 +29,6 @@ rejectPending(user){
     return http.put('/rejectUser', user)
 },
 
-
-//THIS NEEDS TO BE ADDED ON THE USER CONTROLLER ON SERVER SIDE
 getUserById(id) {
     return http.get(`/users/${id}`);
 }
