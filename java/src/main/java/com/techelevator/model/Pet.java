@@ -18,7 +18,7 @@ public class Pet {
     public Pet() {
     }
 
-    public Pet(Long petId, String petName, String petType, String petGender, String petBreed, Date petBirthdate, String petDescription, String petPhoto, Date petArrivalDate, boolean isAdopted) {
+    public Pet(Long petId, String petName, String petType, String petGender, String petBreed, Date petBirthdate, String petDescription, String petPhoto, Date petArrivalDate, boolean petIsAdopted) {
         this.petId = petId;
         this.petName = petName;
         this.petType = petType;
