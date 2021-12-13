@@ -7,7 +7,7 @@
           <th>Last Name</th>
           <th>Phone Number</th>
           <th>Email Address</th>
-          <th>Pending</th>
+          <!-- <th>Pending</th> -->
         </tr>
       </thead>
       <tbody>

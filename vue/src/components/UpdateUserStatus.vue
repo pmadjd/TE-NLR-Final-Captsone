@@ -17,8 +17,6 @@
       <input name="Email" type="text" v-model="user.email" />
     </div>
     <div class="field">
-      <!-- <label for="isApproved">Birthdate: </label>
-      <input name="Birthdate" type="text" v-model="pet.petBirthdate" /> -->
       <button v-on:click="approve">Approve</button>
       <button v-on:click="decline">Decline</button>
     </div>
@@ -37,12 +35,11 @@ export default {
         lastName: "",
         phone: "",
         email: "",
-        isApproved: "false",
-        isRejected: "false",
+        isApproved: false,
+        isRejected: false,
       },
     };
   },
-  //THIS WILL NEED TO BE ADDED BY SERVER SIDE FIRST - DO NOT HAVE THE METHOD YET
   created() {
     userService.getUserById(this.$route.params.id).then((response) => {
       this.user.firstName = response.firstName;
@@ -64,7 +61,6 @@ export default {
           }
         })
         .catch((error) => {
-          //if it fails then we should set the error message
           if (error.response) {
             this.errorMsg =
               "Error updating user. Response was: " + error.response.statusText;

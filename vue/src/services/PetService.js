@@ -29,10 +29,16 @@ export default {
         return http.put('/updatePet', pet);
     },
 
+    //with path variable:
     // updatePet(pet){
     //     // pet.petId = petId;
-    //     return http.put('/updatePet', pet);
+    //     return http.put(`/updatePet/${pet.id}`, pet);
     // },
+
+    updateAdopted(pet, petId) {
+        pet.pedId = petId;
+        return http.put('/updateIsAdopted', pet);
+    },
 
     getPetById(id) {
         // return Promise.resolve({petName:"Clifford2", petId: id});

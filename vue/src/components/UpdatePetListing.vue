@@ -31,13 +31,17 @@
       <label for="petArrivalDate">Arrival Date: </label>
       <input name="Arrival Date" type="text" v-model="pet.petArrivalDate" />
     </div>
-     <div class="field">
+    <div class="field">
       <label for="petDescription">Description: </label>
-      <input name="Description" type="text" v-model="pet.petDescription" />
+      <textarea name="Description" type="text" v-model="pet.petDescription" />
+    </div>
+    <div class="field">
+      <label for="markAdopted">Adopted </label>
+      <input name="Mark Adopted" type="checkbox" v-on:click="updateStatus" v-model="pet.petIsAdopted" />
     </div>
      <div class="field">
       <label for="AdopterInfo">Adopter: </label>
-      <input name="Adopter" type="text" v-model="pet.petAdopterInfo" />
+      <textarea name="Adopter" type="text" v-model="pet.petAdopterInfo" />
     </div>
     <div class="actions">
       <!-- need to edit the below method to update pet information -->
@@ -50,7 +54,6 @@
 import petService from "@/services/PetService";
 export default {
   name: "update-listing",
-  // props: ["petId"]
   data() {
     return {
       pet: {
@@ -61,7 +64,9 @@ export default {
         petBirthdate: "",
         petArrivalDate: "",
         petDescription: "",
-        petAdopterInfo: ""
+        petAdopterInfo: "",
+        petIsAdopted: false,
+        petType: ""
       },
     };
   },
@@ -75,6 +80,8 @@ export default {
       this.petArrivalDate = response.petArrivalDate;
       this.petDescription = response.petDescription;
       this.petAdopterInfo = response.petAdopterInfo;
+      this.petIsAdopted = response.petIsAdopted;
+      this.petType = response.petType;
     });
   },
   methods: {
@@ -88,7 +95,26 @@ export default {
         }
       })
        .catch((error) => {
-          //if it fails then we should set the error message
+          if (error.response){
+            this.errorMsg = "Error updating pet. Response was: "+error.response.statusText;
+          } else if (error.request){
+            this.errorMsg= "Error updating pet. Server could not be reached.";
+          } else {
+            this.errorMsg = "Error updating pet. Could not create request";
+          }
+        });  
+    },
+    updateStatus() {
+      petService
+      .updateAdopted(this.pet) //petId???
+      .then(response => {
+        if(response.status === 200) {
+          // this.$router.push({name: `${this.pet.petType}s`});
+          //or route to homepage??
+          this.responseMsg = "Successfully updated."
+        }
+      })
+      .catch((error) => {
           if (error.response){
             this.errorMsg = "Error updating pet. Response was: "+error.response.statusText;
           } else if (error.request){

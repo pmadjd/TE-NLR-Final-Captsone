@@ -20,12 +20,13 @@ getPendingUsers(){
     return http.get('/pending')
 },
 
-approvePending(user){
-    // user.userId = userId
+approvePending(user, userId){
+    user.userId = userId;
     return http.put('/approveUser', user)
 },
 
-rejectPending(user){
+rejectPending(user, userId){
+    user.userId = userId;
     return http.put('/rejectUser', user)
 },
 
