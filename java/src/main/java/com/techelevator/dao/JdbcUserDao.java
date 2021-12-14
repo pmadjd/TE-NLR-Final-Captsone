@@ -116,19 +116,17 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public User updateIsApproved(User user, Long id) {
-        User results = user;
+    public User updateIsApproved(Long id) {
         String sql = "UPDATE users SET is_approved = true WHERE user_id = ?";
-        int newId = jdbcTemplate.update(sql, user.getId());
-        return getUserById(user.getId());
+        int newId = jdbcTemplate.update(sql, id);
+        return getUserById(id);
     }
 
     @Override
-    public User updateIsRejected(User user, Long id) {
-        User results = user;
+    public User updateIsRejected(Long id) {
         String sql = "UPDATE users SET is_rejected = true WHERE user_id = ?";
-        int newId = jdbcTemplate.update(sql, user.getId());
-        return getUserById(user.getId());
+        int newId = jdbcTemplate.update(sql, id);
+        return getUserById(id);
     }
 
     private User mapRowToUser(SqlRowSet rs) {

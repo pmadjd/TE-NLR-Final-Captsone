@@ -12,7 +12,7 @@ public interface PetDao {
     Pet getPetById(Long petId);
     Pet createPet(Pet pet);
     Pet updatePet(Pet pet, Long petId);
-    Pet updateIsAdopted(Pet pet, Long Id);
+//    Pet updateIsAdopted(Pet pet, Long Id);
 
 //    List<Pet> getPets(String petType);
 }

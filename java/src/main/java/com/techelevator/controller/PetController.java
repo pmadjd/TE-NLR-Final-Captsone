@@ -32,6 +32,7 @@ public class PetController {
     public List<Pet> getCats() {
         return petDao.getCats();
     }
+
     @RequestMapping(path = "/others", method = RequestMethod.GET)
     public List<Pet> getOthers() {
         return petDao.getOthers();
@@ -42,7 +43,7 @@ public class PetController {
         return petDao.getPetById(petId);
     }
 
-    //@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
+//    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/addPet", method = RequestMethod.POST)
     public Pet createPet(@RequestBody Pet pet) {
@@ -55,11 +56,11 @@ public class PetController {
         return petDao.updatePet(pet, petId);
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
-    @RequestMapping(path = "/updateIsAdopted/{petId}", method = RequestMethod.PUT)
-    public Pet updateIsAdopted(@RequestBody Pet pet, @PathVariable Long petId) {
-        return petDao.updateIsAdopted(pet, petId);
-    }
+//    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
+//    @RequestMapping(path = "/updateIsAdopted/{petId}", method = RequestMethod.PUT)
+//    public Pet updateIsAdopted(@RequestBody Pet pet, @PathVariable Long petId) {
+//        return petDao.updateIsAdopted(pet, petId);
+//    }
 }
 
 

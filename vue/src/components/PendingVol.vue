@@ -7,7 +7,7 @@
         id="logo"
       />
     </h1>
-    <table>
+    <table id = "user-list">
       <thead>
         <tr>
           <th>First Name</th>
@@ -23,7 +23,7 @@
           <td>{{ user.lastName }}</td>
           <td>{{ user.phone }}</td>
           <td>{{ user.email }}</td>
-          <td><button v-on:click="onUpdate(user.id)">Update</button></td>
+          <td><button v-on:click="approve(user.id)">Approve</button><button v-on:click="decline(user.id)">Decline</button></td>
         </tr>
       </tbody>
     </table>
@@ -53,8 +53,47 @@ export default {
     });
   },
   methods: {
-    onUpdate(id) {
-      this.$router.push({ name: "editUser", params: { id: id } });
+    approve(id) {
+        userService
+        .approvePending(id)
+        .then((response) => {
+          if (response.status === 200) {
+            this.$router.push({ name: "pendingVols" });
+            //or route to homepage??
+          }
+        })
+        .catch((error) => {
+          if (error.response) {
+            this.errorMsg =
+              "Error updating user. Response was: " + error.response.statusText;
+          } else if (error.request) {
+            this.errorMsg = "Error updating user. Server could not be reached.";
+          } else {
+            this.errorMsg = "Error updating user. Could not create request";
+          }
+        });
+    },
+    decline(id) {
+      let user = userService.getUserById(id);
+      userService
+        .rejectPending(user)
+        .then((response) => {
+          if (response.status === 200) {
+            this.$router.push({ name: "pendingVols" });
+            //or route to homepage??
+          }
+        })
+        .catch((error) => {
+          //if it fails then we should set the error message
+          if (error.response) {
+            this.errorMsg =
+              "Error updating user. Response was: " + error.response.statusText;
+          } else if (error.request) {
+            this.errorMsg = "Error updating user. Server could not be reached.";
+          } else {
+            this.errorMsg = "Error updating user. Could not create request";
+          }
+        });
     },
   },
 };

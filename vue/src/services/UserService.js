@@ -6,8 +6,6 @@ import axios from 'axios';
 
 export default {
 
-//?????????? check put methods
-
 getAllUsers(){
     return axios.get('/listOfUsers')
 },
@@ -20,12 +18,12 @@ getPendingUsers(){
     return axios.get('/pending')
 },
 
-approvePending(user){
-    return axios.put(`/approveUser/${user.id}`, user)
+approvePending(id){
+    return axios.put(`/approveUser/${id}`)
 },
 
-rejectPending(user){
-    return axios.put(`/rejectUser/${user.id}`, user)
+rejectPending(id){
+    return axios.put(`/rejectUser/${id}`)
 },
 
 getUserById(id) {

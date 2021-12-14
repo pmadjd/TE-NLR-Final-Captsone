@@ -7,7 +7,7 @@
         id="logo"
       />
     </h1>
-    <table>
+    <table id = "user-list">
       <thead>
         <tr>
           <th>First Name</th>
@@ -56,4 +56,8 @@ export default {
 </script>
 
 <style>
+#user-list{
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>

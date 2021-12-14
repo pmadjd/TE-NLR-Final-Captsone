@@ -103,12 +103,12 @@ public class JdbcPetDao implements PetDao {
         return result;
     }
 
-    public Pet updateIsAdopted(Pet pet, Long id) {
-        Pet results = pet;
-        String sql = "UPDATE pets SET is_adopted = true WHERE pet_id = ?";
-        int newId = jdbcTemplate.update(sql, pet.getPetId());
-        return getPetById(pet.getPetId());
-    }
+//    public Pet updateIsAdopted(Pet pet, Long id) {
+//        Pet results = pet;
+//        String sql = "UPDATE pets SET is_adopted = true WHERE pet_id = ?";
+//        int newId = jdbcTemplate.update(sql, pet.getPetId());
+//        return getPetById(pet.getPetId());
+//    }
 //    public Pet updateIsAdopted(Pet pet, Long id) {
 //        Pet results = pet;
 //        String sql = "UPDATE pets SET is_adopted = true, adopter_info = '?' WHERE pet_id = ?";

@@ -22,24 +22,11 @@ export default {
         return axios.post('/addPet', pet);
     },
 
-    // // ???????????????????????
-    // // updatePet(pet, petId){
-    // updatePet(pet, petId){
-    //     pet.petId = petId;
-    //     return http.put('/updatePet', pet);
-    // },
-
     updatePet(pet){
-        // pet.petId = petId;
         return axios.put(`/updatePet/${pet.petId}`, pet);
     },
 
-    updateAdopted(pet) {
-        return axios.put(`/updateIsAdopted/${pet.petId}`, pet);
-    },
-
     getPetById(petId) {
-        // return Promise.resolve({petName:"Clifford2", petId: id});
         return axios.get(`/pets/${petId}`);
     }
 
