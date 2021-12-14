@@ -129,6 +129,13 @@ public class JdbcUserDao implements UserDao {
         return getUserById(id);
     }
 
+    @Override
+    public User updateNewUser(Long id){
+        String sql = "UPDATE users SET new_user = FALSE WHERE user_id = ?";
+        int newId = jdbcTemplate.update(sql, id);
+        return getUserById(id);
+    }
+
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
         user.setId(rs.getLong("user_id"));
@@ -142,6 +149,7 @@ public class JdbcUserDao implements UserDao {
         user.setPhone(rs.getString("phone"));
         user.setApproved(rs.getBoolean("is_approved"));
         user.setRejected(rs.getBoolean("is_rejected"));
+        user.setNewUser(rs.getBoolean("new_user"));
         return user;
     }
 }

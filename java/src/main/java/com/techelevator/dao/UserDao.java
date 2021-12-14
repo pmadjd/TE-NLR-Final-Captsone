@@ -24,4 +24,6 @@ public interface UserDao {
     User updateIsApproved(Long id);
 
     User updateIsRejected(Long id);
+
+    User updateNewUser(Long id);
 }

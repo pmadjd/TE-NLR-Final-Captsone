@@ -24,9 +24,21 @@
       <input name="Photo" type="text" v-model="pet.petPhoto" />
     </div>
     <div class="field">
-      <label for="petGender">Sex: </label>
-      <input name="Gender" type="text" v-model="pet.petGender" />
-    </div>
+      <label for="gender">Sex: </label>
+        <input
+          type="radio"
+          name="petGender"
+          v-model="pet.petGender"
+          value="M"
+        /><label for="male">Male</label>
+        <input
+          type="radio"
+          name="petGender"
+          v-model="pet.petGender"
+          value="F"
+        />
+        <label for="female">Female</label>
+        </div>
     <div class="field">
       <label for="petBreed">Breed: </label>
       <input name="Breed" type="text" v-model="pet.petBreed" />

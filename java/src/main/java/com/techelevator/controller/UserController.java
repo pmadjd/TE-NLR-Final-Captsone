@@ -55,4 +55,7 @@ public class UserController {
     public User getUserById(@PathVariable Long userId) {
         return userDao.getUserById(userId);
     }
+
+    @RequestMapping(path = "/newUser/{id}", method = RequestMethod.PUT)
+    public User updateNewUser(@PathVariable Long id) {return userDao.updateNewUser(id);}
 }

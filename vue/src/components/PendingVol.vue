@@ -58,8 +58,7 @@ export default {
         .approvePending(id)
         .then((response) => {
           if (response.status === 200) {
-            this.$router.push({ name: "pendingVols" });
-            //or route to homepage??
+            this.$router.go();
           }
         })
         .catch((error) => {
@@ -74,13 +73,11 @@ export default {
         });
     },
     decline(id) {
-      let user = userService.getUserById(id);
       userService
-        .rejectPending(user)
+        .rejectPending(id)
         .then((response) => {
           if (response.status === 200) {
-            this.$router.push({ name: "pendingVols" });
-            //or route to homepage??
+            this.$router.go();
           }
         })
         .catch((error) => {

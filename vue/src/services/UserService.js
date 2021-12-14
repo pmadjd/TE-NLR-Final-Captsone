@@ -28,6 +28,9 @@ rejectPending(id){
 
 getUserById(id) {
     return axios.get(`/users/${id}`);
-}
+},
 
+// updateNewUser(id){
+//     return axios.put(`/newUser/${id}`)
+// }
 }
