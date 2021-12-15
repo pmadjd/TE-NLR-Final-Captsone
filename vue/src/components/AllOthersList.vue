@@ -15,16 +15,16 @@
       <h3 class="pet-breed">Breed: {{ other.petBreed }}</h3>
       <h3 class="pet-birthdate">Birthdate: {{ other.petBirthdate }}</h3>
       <h3 class="arrival-date">Arrival Date: {{other.petArrivalDate}}</h3>
-      <h3 class="length-of-stay">Length of Stay: <span>{{ other.petArrivalDate | moment("from", true) }}</span> </h3>
+      <h3 class="length-of-stay">Length of Stay: <span>{{ showLengthOfStay(other) }} days</span> </h3>
       <h4 class="pet-description">{{ other.petDescription }}</h4>
       <button v-if="$store.state.user.authorities" v-on:click= "onUpdate(other.petId)">Update</button>
-       <!-- <button v-if="$store.state.user.authorities"> Mark Adopted</button> -->
     </div>
   </div>
 </template>
 
 <script>
 import petService from "@/services/PetService";
+import moment from "moment";
 
 export default {
   name: "others-list",
@@ -42,8 +42,14 @@ export default {
   methods: {
     onUpdate(petId){
       this.$router.push({name: 'editListing', params: {id: petId}})
-    }
-
+  },
+  showLengthOfStay(other){
+    let given = moment(other.petArrivalDate);
+    let current = moment().startOf('day');
+    console.log(given);
+    console.log(current);
+    return Math.floor(moment.duration(current.diff(given)).asDays());
+  }
   }
 };
 </script>

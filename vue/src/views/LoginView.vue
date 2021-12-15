@@ -149,9 +149,11 @@ export default {
 }
 
 .bubble-banner{
-  width: 50%;
-  height: 50%;
-  display: flex;
-  justify-content: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 70px;
+  margin-bottom: 30px;
+  width: 35%;
 }
 </style>

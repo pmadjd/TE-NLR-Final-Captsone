@@ -15,16 +15,16 @@
       <h3 class="pet-breed">Breed: {{ dog.petBreed }}</h3>
       <h3 class="pet-birthdate">Birthdate: {{ dog.petBirthdate }}</h3>
       <h3 class="arrival-date">Arrival Date: {{ dog.petArrivalDate }}</h3>
-      <h3 class="length-of-stay">Length of Stay: <span>{{ dog.petArrivalDate | moment("from", "now", true) }}</span> </h3>
+      <h3 class="length-of-stay">Length of Stay: <span>{{ showLengthOfStay(dog) }} days</span> </h3>
       <h4 class="pet-description">{{ dog.petDescription }}</h4>
       <button v-if="$store.state.user.authorities" v-on:click= "onUpdate(dog.petId)">Update</button>
-       <!-- <button v-if="$store.state.user.authorities"> Mark Adopted</button> -->
     </div>
   </div>
 </template>
 
 <script>
 import petService from "@/services/PetService.js";
+import moment from "moment";
 
 export default {
   name: "dogs-list",
@@ -38,11 +38,17 @@ export default {
       // console.log(response.data);
       this.dogs = response.data;
     });
-    //do we use moment here?
   },
 methods:{
   onUpdate(petId){
     this.$router.push({name:'editListing', params: {id: petId}})
+  },
+  showLengthOfStay(dog){
+    let given = moment(dog.petArrivalDate);
+    let current = moment().startOf('day');
+    console.log(given);
+    console.log(current);
+    return Math.floor(moment.duration(current.diff(given)).asDays());
   }
 }
 };
