@@ -21,7 +21,9 @@ public interface UserDao {
     User createUser(String username, String password, String role, String firstname, String lastname,
                        String email, String phone);
 
-    User updateIsApproved(User user, Long id);
+    User updateIsApproved(Long id);
 
-    User updateIsRejected(User user, Long id);
+    User updateIsRejected(Long id);
+
+    User updateNewUser(Long id);
 }

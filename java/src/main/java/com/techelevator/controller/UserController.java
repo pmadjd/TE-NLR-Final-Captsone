@@ -38,21 +38,24 @@ public class UserController {
         return userDao.findAllPending();
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+//    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(path = "/approveUser/{id}", method = RequestMethod.PUT)
-    public User updateIsApproved(@RequestBody User user, @PathVariable Long id) {
-        return userDao.updateIsApproved(user, id);
+    public User updateIsApproved(@PathVariable Long id) {
+        return userDao.updateIsApproved(id);
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(path = "/rejectUser/{id}", method = RequestMethod.PUT)
-    public User updateIsRejected(@RequestBody User user, @PathVariable Long id) {
-        return userDao.updateIsRejected(user, id);
+    public User updateIsRejected(@PathVariable Long id) {
+        return userDao.updateIsRejected(id);
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+//    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @RequestMapping(path = "/users/{userId}", method = RequestMethod.GET)
     public User getUserById(@PathVariable Long userId) {
         return userDao.getUserById(userId);
     }
+
+    @RequestMapping(path = "/newUser/{id}", method = RequestMethod.PUT)
+    public User updateNewUser(@PathVariable Long id) {return userDao.updateNewUser(id);}
 }

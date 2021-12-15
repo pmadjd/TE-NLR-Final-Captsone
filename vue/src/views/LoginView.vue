@@ -17,7 +17,7 @@
         role="alert"
         v-if="this.$route.query.registration"
       >
-        Thank you for registering, please sign in.
+        Thank you for registering. Your volunteer application is pending approval.
       </div>
       <label for="username" class="sr-only">Username: </label>
       <input
@@ -59,6 +59,7 @@ export default {
       user: {
         username: "",
         password: "",
+        isApproved: false
       },
       invalidCredentials: false,
     };
@@ -69,8 +70,13 @@ export default {
         .login(this.user)
         .then((response) => {
           if (response.status == 200) {
+            if(response.data.user.isApproved){
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
+            alert('Welcome! Thanks for volunteering with us!');
+          }else{
+            alert('Application pending. Please wait for approval to access volunteer login.');
+          }
             this.$router.push("/");
           }
         })

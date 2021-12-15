@@ -21,6 +21,7 @@ public class User {
    private String phone;
    private boolean isApproved;
    private boolean isRejected;
+   private boolean newUser;
 
 
    public User() { }
@@ -67,7 +68,7 @@ public class User {
    }
 
    public Set<Authority> getAuthorities() {
-      return authorities;
+     return isApproved ? authorities : new HashSet<>();
    }
 
    public void setAuthorities(Set<Authority> authorities) {
@@ -120,6 +121,13 @@ public class User {
 
    public void setRejected(boolean rejected) {
       this.isRejected = rejected;
+   }
+   public boolean isNewUser() {
+      return newUser;
+   }
+
+   public void setNewUser(boolean newUser) {
+      this.newUser = newUser;
    }
 
    public void setAuthorities(String authorities) {
