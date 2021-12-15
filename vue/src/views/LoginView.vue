@@ -70,7 +70,7 @@ export default {
         .login(this.user)
         .then((response) => {
           if (response.status == 200) {
-            if(response.data.user.isApproved){
+            if(response.data.user.approved){
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
             alert('Welcome! Thanks for volunteering with us!');
