@@ -1,10 +1,3 @@
-<!----<template>
-  <div>
-    <h1>Hello</h1>
-    <input type="text" v-model="pet.petName" />
-  </div>
-</template> -->
-
 <template>
   <form v-on:submit.prevent class="text-center">
     <h1>
@@ -15,6 +8,7 @@
       />
     </h1>
     <h1>Update Pet Listing</h1>
+    <div class="input-list">
     <div class="field">
       <label for="petName">Name: </label>
       <input name="Name" type="text" v-model="pet.petName" />
@@ -64,12 +58,12 @@
       />
     </div>
     <div class="field">
-      <label for="AdopterInfo">Adopter: </label>
+      <label for="AdopterInfo">Adopter Info: </label>
       <textarea name="Adopter" type="text" v-model="pet.petAdopterInfo" />
     </div>
+    </div>
     <div class="actions">
-      <!-- need to edit the below method to update pet information -->
-      <button type="submit" v-on:click="updatePetListing">Submit</button>
+      <button id="add-pet-button" type="submit" v-on:click="updatePetListing">Submit</button>
     </div>
   </form>
 </template>
@@ -108,7 +102,6 @@ export default {
           console.log(response);
           if (response.status === 200) {
             this.$router.push({ name: `${this.pet.petType}s` });
-            //or route to homepage??
           }
         })
         .catch((error) => {
@@ -122,27 +115,6 @@ export default {
           }
         });
     },
-    // updateStatus() {
-    //   petService
-    //     .updateAdopted(this.pet) //petId???
-    //     .then((response) => {
-    //       if (response.status === 200) {
-    //         // this.$router.push({name: `${this.pet.petType}s`});
-    //         //or route to homepage??
-    //         this.responseMsg = "Successfully updated.";
-    //       }
-    //     })
-    //     .catch((error) => {
-    //       if (error.response) {
-    //         this.errorMsg =
-    //           "Error updating pet. Response was: " + error.response.statusText;
-    //       } else if (error.request) {
-    //         this.errorMsg = "Error updating pet. Server could not be reached.";
-    //       } else {
-    //         this.errorMsg = "Error updating pet. Could not create request";
-    //       }
-    //     });
-    // },
   },
 };
 </script>

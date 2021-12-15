@@ -152,8 +152,8 @@ export default {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 70px;
-  margin-bottom: 30px;
-  width: 35%;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  width: 30%;
 }
 </style>

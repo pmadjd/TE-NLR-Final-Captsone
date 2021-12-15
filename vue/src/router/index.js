@@ -13,7 +13,7 @@ import NotFound from '../views/NotFoundView.vue'
 import PendingVols from '../views/PendingVolsView.vue'
 import Directory from '../views/VolDirectoryView.vue'
 import AddPet from '../views/AddPetListingView.vue'
-import EditUserStatus from '../views/EditUserStatusView.vue'
+import AboutUs from '../views/AboutUsView.vue'
 
 Vue.use(Router)
 
@@ -107,15 +107,6 @@ const router = new Router({
         requiresAuth: true
       }
     },
-    //added below - need to create another component
-    {
-      path: "/edit-user/:id",
-      name: "editUser",
-      component: EditUserStatus,
-      meta: {
-        requiresAuth: true
-      }
-    },
     {
       path: "/directory",
       name: "directory",
@@ -130,6 +121,14 @@ const router = new Router({
       component: AddPet,
       meta: {
         requiresAuth: true
+      }
+    },
+    {
+      path: "/about-us",
+      name: "aboutUs",
+      component: AboutUs,
+      meta: {
+        requiresAuth: false
       }
     }
   ]

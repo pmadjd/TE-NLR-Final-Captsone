@@ -60,4 +60,11 @@ export default {
   margin-left: auto;
   margin-right: auto;
 }
+table {
+  border-collapse: separate;
+  border-spacing: 15px 0;
+}
+td{
+  padding: 4px;
+}
 </style>

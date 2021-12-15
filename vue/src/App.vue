@@ -2,6 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>
+      <router-link v-bind:to="{name: 'aboutUs'}"> | About Us</router-link>
       <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''"
         > | Volunteer Login</router-link
       >
