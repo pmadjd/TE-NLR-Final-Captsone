@@ -44,6 +44,9 @@
       border="0"
       id="banner"
     />
+    <footer>
+      Copyright &copy; 2021 Green Animal Shelter. All Rights Reserved.
+    </footer>
   </div>
 </template>
 
