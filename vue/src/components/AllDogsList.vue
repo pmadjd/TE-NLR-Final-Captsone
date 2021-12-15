@@ -10,7 +10,7 @@
     <div class="pet-card" v-for="dog in dogs" v-bind:key="dog.petId">
       <h2 class="pet-name">{{ dog.petName }}</h2>
       <h3 class="pet-id">Pet ID: {{ dog.petId }}</h3>
-      <img v-bind:src="dog.petPhoto" alt="dog photo" id="pet-photo" />
+      <img v-bind:src="'/assets/' + dog.petPhoto" alt="dog photo" id="pet-photo" />
       <h3 class="pet-gender">Sex: {{ dog.petGender }}</h3>
       <h3 class="pet-breed">Breed: {{ dog.petBreed }}</h3>
       <h3 class="pet-birthdate">Birthdate: {{ dog.petBirthdate }}</h3>

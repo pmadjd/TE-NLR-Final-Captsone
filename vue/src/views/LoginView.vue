@@ -1,4 +1,5 @@
 <template>
+<div>
   <div id="login" class="text-center">
     <h1>
       <img
@@ -42,10 +43,12 @@
       </div>
       <button type="submit">Sign in</button>
       <div>
-        <router-link :to="{ name: 'register' }">Need an account? </router-link>
+        <router-link :to="{ name: 'register' }">Need to apply?</router-link>
       </div>
     </form>
   </div>
+    <img class= "bubble-banner" src="https://cdn10.bigcommerce.com/s-lzmxlzw/product_images/uploaded_images/banner_give.png" alt="bubble banner">
+</div>
 </template>
 
 <script>
@@ -143,5 +146,12 @@ export default {
   color: rgb(37, 47, 126);
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
   word-wrap: break-word;
+}
+
+.bubble-banner{
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
 }
 </style>

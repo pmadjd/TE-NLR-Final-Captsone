@@ -15,6 +15,9 @@
       >
     </div>
     <router-view />
+      <footer>
+        Copyright &copy; 2021 Green Animal Shelter. All Rights Reserved.
+      </footer>
   </div>
 </template>
 
@@ -27,5 +30,9 @@ a {
   text-decoration: none;
   color: #7e6037;
   font-size: 20px;
+}
+footer {
+  color: #7e6037;
+  text-align: center;
 }
 </style>

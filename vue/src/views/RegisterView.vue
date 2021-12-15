@@ -8,7 +8,7 @@
       />
     </h1>
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h3 mb-3 font-weight-normal">Apply/Register</h1>
+      <h1 class="h3 mb-3 font-weight-normal">Apply to be a volunteer!</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -83,7 +83,7 @@
       />
       <br />
       <button class="btn btn-lg btn-primary btn-block" type="submit">
-        Apply/Register
+        Apply
       </button>
       <br />
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
