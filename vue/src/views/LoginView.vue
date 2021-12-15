@@ -17,7 +17,7 @@
         role="alert"
         v-if="this.$route.query.registration"
       >
-        Thank you for registering, please sign in.
+        Thank you for registering. Your volunteer application is pending approval.
       </div>
       <label for="username" class="sr-only">Username: </label>
       <input
