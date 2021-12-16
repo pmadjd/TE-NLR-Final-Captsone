@@ -38,12 +38,49 @@
       </div>
     </div>
 
-    <img
-      src="https://i.ibb.co/PGMJcjz/dog-and-cat-banner-23.png"
-      alt="shelter banner"
-      border="0"
-      id="banner"
-    />
+    <body>
+      <img
+        src="https://i.ibb.co/PGMJcjz/dog-and-cat-banner-23.png"
+        alt="shelter banner"
+        border="0"
+        id="banner"
+      />
+      <div>
+        <h4>
+          With hundreds of animals coming through our doors each year, Green
+          Animal Shelter provides a safe place for dogs, cats, and small animals
+          to stay while they wait for their forever families. We have a live
+          release rate of over 90% and are very proud of our excellent volunteer
+          program and the wonderful animal-loving community we're a part of!
+          Thanks to the support provided by the valuable time of our volunteers
+          and generous donations from the community, we have helped give happy
+          homes to over 2,000 pets to date.
+        </h4>
+      </div>
+      <div>
+        <p>
+          Want to get involved?
+          <a href="/register" class="linkedin">Join our volunteer program!</a>
+          <br />
+          Interested in adopting a new furr-ever friend? Visit us in person or
+          browse our list of available pets online and contact us to learn more!
+        </p>
+      </div>
+      <div>
+        <h4>CONTACT US</h4>
+        <p>
+          (200) 867-5309 <br />
+          greenanimalshelter@adopt.com <br />
+          2901 Osceola Pkwy <br />
+          Bay Lake, FL 34747
+        </p>
+        <h4>HOURS</h4>
+        <p>
+          Mon - Sat: 9AM - 7PM <br />
+          Sun: 10AM - 5PM <br />
+        </p>
+      </div>
+    </body>
   </div>
 </template>
 

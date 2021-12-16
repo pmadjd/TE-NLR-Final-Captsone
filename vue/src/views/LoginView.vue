@@ -78,7 +78,7 @@ export default {
             this.$store.commit("SET_USER", response.data.user);
             alert('Welcome! Thanks for volunteering with us!');
           }else{
-            alert('Application pending. Please wait for approval to access volunteer login.');
+            alert('Please wait for approval to access volunteer login.');
           }
             this.$router.push("/");
           }

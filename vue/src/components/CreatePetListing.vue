@@ -55,7 +55,7 @@
           />
         </div>
         <div class="photo-input">
-          <label for="photo">Photo URL: </label>
+          <label for="photo">Photo URL:</label>
           <input type="text" name="petPhoto" v-model="pet.petPhoto" />
         </div>
       </div>
@@ -97,6 +97,10 @@ export default {
         }
       });
     },
+    parseURL(url){
+      let imageName = url.substring(url.lastIndexOf("/" + 1, url.length));
+      return imageName;
+    }
   },
 };
 </script>
