@@ -38,15 +38,17 @@
       </div>
     </div>
 
-    <body>
+    <div class="grid">
+      <div>
       <img
-        src="https://i.ibb.co/PGMJcjz/dog-and-cat-banner-23.png"
+        src="https://i.ibb.co/ZHjzmQc/dog-and-cat-banner-new.png"
         alt="shelter banner"
         border="0"
         id="banner"
-      />
+      /></div>
       <div>
-        <h4>
+        <h2 id="home-tagline">Welcome to the Family!</h2>
+        <h4 id="home-h4">
           With hundreds of animals coming through our doors each year, Green
           Animal Shelter provides a safe place for dogs, cats, and small animals
           to stay while they wait for their forever families. We have a live
@@ -56,21 +58,19 @@
           and generous donations from the community, we have helped give happy
           homes to over 2,000 pets to date.
         </h4>
-      </div>
-      <div>
-        <p>
+        <p id="home-p">
           Want to get involved?
           <a href="/register" class="linkedin">Join our volunteer program!</a>
-          <br />
+          <br /> <br>
           Interested in adopting a new furr-ever friend? Visit us in person or
           browse our list of available pets online and contact us to learn more!
         </p>
       </div>
-      <div>
+      <div id="sidebar">
         <h4>CONTACT US</h4>
         <p>
-          (200) 867-5309 <br />
-          greenanimalshelter@adopt.com <br />
+          (200) 867-5309 <br /> <br>
+          greenshelter@adopt.com <br /> <br>
           2901 Osceola Pkwy <br />
           Bay Lake, FL 34747
         </p>
@@ -80,7 +80,7 @@
           Sun: 10AM - 5PM <br />
         </p>
       </div>
-    </body>
+    </div>
   </div>
 </template>
 
@@ -121,9 +121,31 @@ div.well {
   color: #7e6037;
 }
 #banner {
-  width: 100%;
+  width: 550px;
   height: auto;
-  display: flex;
-  justify-content: center;
+  border-radius: 15px;
+  margin-top: 10px;
+}
+.grid{
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+#home-tagline{
+  font-size: 30px;
+  color: rgb(37, 47, 126);
+}
+#home-h4{
+  font-size: 19px;
+  color: rgb(37, 47, 126);
+}
+#home-p{
+  font-size: 17px;
+  color: rgb(37, 47, 126);
+}
+#sidebar{
+  font-size: 120%;
+  color:rgb(122, 93, 54);
 }
 </style>

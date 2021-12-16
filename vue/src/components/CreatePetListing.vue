@@ -55,7 +55,7 @@
           />
         </div>
         <div class="photo-input">
-          <label for="photo">Photo URL:</label>
+          <label for="photo">Photo URL: </label>
           <input type="text" name="petPhoto" v-model="pet.petPhoto" />
         </div>
       </div>
@@ -90,6 +90,7 @@ export default {
   },
   methods: {
     addNewPet() {
+      this.pet.petPhoto = this.parseURL(this.pet.petPhoto);
       petService.addNewPet(this.pet).then((response) => {
         console.log(response.status + "   response status");
         if (response.status === 201) {
@@ -98,7 +99,7 @@ export default {
       });
     },
     parseURL(url){
-      let imageName = url.substring(url.lastIndexOf("/" + 1, url.length));
+      let imageName = url.substring(url.lastIndexOf("/") + 1);
       return imageName;
     }
   },

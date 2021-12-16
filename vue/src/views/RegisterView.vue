@@ -1,4 +1,5 @@
 <template>
+<div>
   <div id="register" class="text-center">
     <h1>
       <img
@@ -9,6 +10,7 @@
     </h1>
     <form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Apply to be a volunteer!</h1>
+      <div class="input-list">
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -21,7 +23,7 @@
         v-model="user.username"
         required
         autofocus
-      />
+      /> <br>
       <label for="password" class="sr-only">Password: </label>
       <input
         type="password"
@@ -49,7 +51,7 @@
         v-model="user.firstname"
         required
         autofocus
-      />
+      /> <br>
       <label for="lastName" class="sr-only">Last Name: </label>
       <input
         type="text"
@@ -70,7 +72,7 @@
         v-model="user.email"
         required
         autofocus
-      />
+      /> <br>
       <label for="phoneNumber" class="sr-only">Phone Number: </label>
       <input
         type="text"
@@ -82,12 +84,15 @@
         autofocus
       />
       <br />
+      </div> <br>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Apply
       </button>
       <br />
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
     </form>
+  </div>
+   <img class= "bubble-banner" src="https://cdn10.bigcommerce.com/s-lzmxlzw/product_images/uploaded_images/banner_give.png" alt="bubble banner">
   </div>
 </template>
 
