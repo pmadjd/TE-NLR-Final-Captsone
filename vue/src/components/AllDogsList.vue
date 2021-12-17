@@ -61,14 +61,14 @@ methods:{
   border-radius: 15px;
 }
 .pet-card {
-  border: 2px solid rgb(112, 85, 28);
+  border: 2px solid rgb(145, 123, 77);
   border-radius: 15px;
-  border-width: 2px;
+  border-width: 3px;
   width: 250px;
   height: 800px;
   margin: 20px;
   text-align: center;
-  background-color: rgb(223, 239, 255);
+  background-color: rgba(143, 185, 221, 0.315);
   color: rgb(49, 63, 165);
 }
 

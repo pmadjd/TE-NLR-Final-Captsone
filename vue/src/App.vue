@@ -26,6 +26,9 @@
 #app {
   font-family: Asap;
   background-color:  rgb(191, 218, 243);
+  background-image: url("https://i.ibb.co/PZJFdnY/IMG-9685.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 a {
   text-decoration: none;
@@ -35,5 +38,21 @@ a {
 footer {
   color: #7e6037;
   text-align: center;
+}
+button {
+  background-color: #ffffffa1;
+  border: 2px solid #526ba1;
+  border-radius: 15px;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  color: rgb(0, 70, 175);
+  font-family: Asap;
+  
+}
+button:hover{
+  box-shadow: 0 12px 16px 0 rgba(145, 145, 145, 0.24), 0 17px 50px 0 rgba(75, 75, 75, 0.19)
 }
 </style>

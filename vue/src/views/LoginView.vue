@@ -42,7 +42,7 @@
         />
       </div>
       <button type="submit">Sign in</button>
-      <div>
+      <div> <br>
         <router-link :to="{ name: 'register' }">Need to apply?</router-link>
       </div>
     </form>
@@ -127,7 +127,7 @@ export default {
   background-image: -moz-linear-gradient(bottom, #bee2ff 15%, white 100%);
   background-image: -ms-linear-gradient(bottom, #bee2ff 15%, white 100%);
   background-image: -o-linear-gradient(bottom, #bee2ff 15%, white 100%);
-  background-image: linear-gradient(to top, #c7d9f1 15%, white 100%);
+  background-image: linear-gradient(to top, #cbdfec 15%, white 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#95C2FD', endColorstr='#BEE2FF');
   /* border: solid 1px rgba(0,0,0,0.5); */
   border: white;

@@ -87,7 +87,7 @@
       </div> <br>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Apply
-      </button>
+      </button> <br>
       <br />
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
     </form>

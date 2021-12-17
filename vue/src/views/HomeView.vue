@@ -46,7 +46,7 @@
         border="0"
         id="banner"
       /></div>
-      <div>
+      <div class="description">
         <h2 id="home-tagline">Welcome to the Family!</h2>
         <h4 id="home-h4">
           With hundreds of animals coming through our doors each year, Green
@@ -66,7 +66,7 @@
           browse our list of available pets online and contact us to learn more!
         </p>
       </div>
-      <div id="sidebar">
+      <div id="sidebar" class="description">
         <h4>CONTACT US</h4>
         <p>
           (200) 867-5309 <br /> <br>
@@ -128,7 +128,7 @@ div.well {
 }
 .grid{
   display: grid;
-  grid-template-columns: 2fr 2fr 1fr;
+  grid-template-columns: 1.5fr 2fr 1fr;
   align-items: center;
   justify-items: center;
 }
@@ -147,5 +147,10 @@ div.well {
 #sidebar{
   font-size: 120%;
   color:rgb(122, 93, 54);
+}
+.description{
+  background-color: rgba(143, 184, 221, 0.26);
+  border-radius: 15px;
+  padding: 20px;
 }
 </style>
